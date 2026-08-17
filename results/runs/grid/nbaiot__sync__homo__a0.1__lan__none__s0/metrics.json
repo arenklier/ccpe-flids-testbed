@@ -1,0 +1,98 @@
+{
+  "config": {
+    "buffer_k": 4,
+    "compression": "none",
+    "dataset": "nbaiot",
+    "eval_every": 5,
+    "hardware": "homo",
+    "in_dim": 115,
+    "max_seconds": 900,
+    "max_version": 500,
+    "n_classes": 11,
+    "n_clients": 12,
+    "network": "lan",
+    "out_dir": "/out",
+    "part_tag": "a0.1_0",
+    "server_lr": 1.0,
+    "staleness_a": 0.5,
+    "strategy": "sync",
+    "target_macro_f1": 0.68,
+    "test_path": "/part/test.parquet"
+  },
+  "history": [
+    {
+      "version": 5,
+      "wall_s": 7.16,
+      "acc": 0.5424,
+      "macro_f1": 0.4442,
+      "downlink_mb": 15.363,
+      "uplink_mb": 15.363
+    },
+    {
+      "version": 10,
+      "wall_s": 11.98,
+      "acc": 0.6365,
+      "macro_f1": 0.5653,
+      "downlink_mb": 30.725,
+      "uplink_mb": 30.725
+    },
+    {
+      "version": 15,
+      "wall_s": 16.81,
+      "acc": 0.6836,
+      "macro_f1": 0.6039,
+      "downlink_mb": 46.088,
+      "uplink_mb": 46.088
+    },
+    {
+      "version": 20,
+      "wall_s": 21.33,
+      "acc": 0.673,
+      "macro_f1": 0.5974,
+      "downlink_mb": 61.451,
+      "uplink_mb": 61.451
+    },
+    {
+      "version": 25,
+      "wall_s": 26.09,
+      "acc": 0.6924,
+      "macro_f1": 0.6181,
+      "downlink_mb": 76.814,
+      "uplink_mb": 76.814
+    },
+    {
+      "version": 30,
+      "wall_s": 34.34,
+      "acc": 0.6948,
+      "macro_f1": 0.6361,
+      "downlink_mb": 92.176,
+      "uplink_mb": 92.176
+    },
+    {
+      "version": 35,
+      "wall_s": 39.68,
+      "acc": 0.7271,
+      "macro_f1": 0.6722,
+      "downlink_mb": 107.539,
+      "uplink_mb": 107.539
+    },
+    {
+      "version": 40,
+      "wall_s": 46.72,
+      "acc": 0.7151,
+      "macro_f1": 0.664,
+      "downlink_mb": 122.902,
+      "uplink_mb": 122.902
+    },
+    {
+      "version": 45,
+      "wall_s": 51.54,
+      "acc": 0.737,
+      "macro_f1": 0.6837,
+      "downlink_mb": 138.264,
+      "uplink_mb": 138.264
+    }
+  ],
+  "final_version": 45,
+  "reached_target": true
+}

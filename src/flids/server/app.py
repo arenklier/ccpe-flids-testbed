@@ -1,0 +1,331 @@
+"""Asynchronous parameter server implementing four aggregation strategies.
+
+The server owns the global model and a monotonically increasing ``version``.
+Clients PULL (version, model), train locally, and PUSH a delta tagged with the
+base version they trained on. Staleness = current_version - base_version at
+apply time. This makes wall-clock asynchrony and staleness first-class, which
+round-based frameworks cannot express.
+
+Strategies
+----------
+sync      FedAvg with a full-participation barrier: buffer every client's delta
+          for the round, average (data-weighted), apply, bump version. PULL
+          long-polls until the round advances, so all clients train on the same
+          version each round; round time is set by the slowest client.
+fedasync  Apply each delta on arrival: g <- g + eta * s(tau) * delta, with
+          polynomial staleness discount s(tau)=(1+tau)^(-a) (Hu et al., 2019).
+fedbuff   Buffer K deltas from any clients, average, apply, bump (Nguyen 2022).
+staleness ours: buffered async like FedBuff but each buffered delta is weighted
+          by BOTH data size and a polynomial staleness discount before
+          averaging: w_i = n_i * (1+tau_i)^(-a). See paper Sec. 4.
+
+All mutation happens under one lock; run uvicorn with a single worker.
+"""
+from __future__ import annotations
+
+import json
+import queue
+import threading
+import time
+from pathlib import Path
+
+import numpy as np
+import torch
+from fastapi import FastAPI, Request
+from fastapi.responses import JSONResponse, Response
+
+from ..common import add, get_params, param_shapes, set_params, sub
+from ..compression import decode, encode
+from ..data import make_loader
+from ..model import build_model
+
+
+class ParameterServer:
+    def __init__(self, cfg: dict):
+        self.cfg = cfg
+        self.strategy = cfg["strategy"]
+        self.eta = cfg.get("server_lr", 1.0)
+        self.stale_a = cfg.get("staleness_a", 0.5)
+        self.buffer_k = cfg.get("buffer_k", 4)
+        self.n_clients = cfg["n_clients"]
+        self.scheme = cfg.get("compression", "none")
+        self.topk_frac = cfg.get("topk_frac", 0.10)
+        self.target_f1 = cfg.get("target_macro_f1", 0.80)
+        self.eval_every = cfg.get("eval_every", 5)
+        self.max_version = cfg.get("max_version", 2000)
+        self.max_seconds = cfg.get("max_seconds", 7200)
+
+        device = "cuda" if torch.cuda.is_available() else "cpu"
+        self.device = device
+        self.model = build_model(cfg["in_dim"], cfg["n_classes"],
+                                 cfg.get("model_size", "small")).to(device)
+        self.shapes = param_shapes(self.model)
+        self.global_params = get_params(self.model)
+        self.version = 0
+
+        # test set for server-side evaluation
+        self.test_loader = make_loader(cfg["test_path"], 4096, shuffle=False)
+
+        # async/buffered state
+        self.buffer: list[tuple[list[np.ndarray], float, int]] = []  # (delta, weight, n)
+        self.round_pushes: dict[str, tuple[list[np.ndarray], int]] = {}
+
+        # accounting
+        self.lock = threading.Lock()
+        self.cond = threading.Condition(self.lock)
+        self.t0: float | None = None
+        self.downlink_bytes = 0
+        self.uplink_bytes = 0
+        self.history: list[dict] = []
+        self.done = False
+        # per-push trace: (wall_s, client_id, staleness). Lets us reconstruct
+        # the arrival pattern and staleness distribution after the fact, which
+        # is what distinguishes the aggregation strategies operationally.
+        self.push_log: list[tuple[float, str, int]] = []
+
+        # Evaluation runs on its own thread so it never blocks aggregation;
+        # it needs its own model instance so it cannot race the one used
+        # elsewhere. See _bump_and_eval for why this matters for fairness.
+        self.eval_model = build_model(cfg["in_dim"], cfg["n_classes"],
+                                      cfg.get("model_size", "small")).to(device)
+        self._eval_q: "queue.Queue" = queue.Queue()
+        self._eval_busy = False
+        threading.Thread(target=self._eval_worker, daemon=True).start()
+
+        self.out_dir = Path(cfg["out_dir"])
+        self.out_dir.mkdir(parents=True, exist_ok=True)
+
+    # ---- wire ----------------------------------------------------------
+    def pull_blob(self) -> bytes:
+        # downlink is always lossless; compression is studied on the uplink
+        return encode(self.global_params, "none")
+
+    # ---- apply strategies ---------------------------------------------
+    def _bump_and_eval(self):
+        """Advance the version and, on a checkpoint, hand evaluation off.
+
+        Evaluation used to run inline here, holding the aggregator lock for
+        the duration of a full pass over the test split (~3 s). That charged
+        every strategy an overhead proportional to how often it bumped the
+        version, which is 3x more often for the asynchronous rules than for
+        the synchronous barrier -- a systematic bias against exactly the
+        strategies under test. We now copy the parameters under the lock (a
+        memcpy) and let a worker thread do the inference off the critical
+        path. The timestamp recorded is the snapshot time, not the time the
+        evaluation finishes, so wall-clock stays honest.
+
+        At most one evaluation is in flight: if the worker is still busy at
+        the next checkpoint we skip it rather than queue snapshots, which
+        bounds memory and keeps the aggregator from ever waiting on evaluation.
+        """
+        self.version += 1
+        if self.version % self.eval_every == 0 and not self._eval_busy:
+            self._eval_busy = True
+            self._eval_q.put((self.version,
+                              (time.monotonic() - self.t0) if self.t0 else 0.0,
+                              [p.copy() for p in self.global_params],
+                              self.downlink_bytes, self.uplink_bytes))
+        if self.version >= self.max_version:
+            self.done = True
+
+    def _eval_worker(self):
+        while True:
+            item = self._eval_q.get()
+            if item is None:
+                return
+            version, elapsed, snap, dn_bytes, up_bytes = item
+            rec = self._evaluate_snapshot(version, elapsed, snap, dn_bytes, up_bytes)
+            with self.cond:
+                self.history.append(rec)
+                self._eval_busy = False
+                if rec["macro_f1"] >= self.target_f1:
+                    self.done = True
+                self.cond.notify_all()
+
+    def _apply_delta(self, delta, weight_scale=1.0):
+        self.global_params = add(self.global_params, delta, self.eta * weight_scale)
+
+    def apply_push(self, client_id, base_version, delta, n_samples):
+        staleness = self.version - base_version
+        self.push_log.append((round((time.monotonic() - self.t0) if self.t0 else 0.0, 3),
+                              client_id, int(max(0, staleness))))
+
+        if self.strategy == "sync":
+            self.round_pushes[client_id] = (delta, n_samples)
+            if len(self.round_pushes) >= self.n_clients:
+                tot = sum(n for _, n in self.round_pushes.values()) or 1
+                agg = [np.zeros(s, dtype=np.float32) for s in self.shapes]
+                for d, n in self.round_pushes.values():
+                    for i, dd in enumerate(d):
+                        agg[i] += (n / tot) * dd
+                self._apply_delta(agg)
+                self.round_pushes.clear()
+                self._bump_and_eval()
+                self.cond.notify_all()
+
+        elif self.strategy == "fedasync":
+            s = (1.0 + max(0, staleness)) ** (-self.stale_a)
+            self._apply_delta(delta, weight_scale=s)
+            self._bump_and_eval()
+            self.cond.notify_all()
+
+        elif self.strategy == "fedbuff":
+            # FedBuff as published (Nguyen et al. 2022, Sec. 5 "Staleness
+            # scaling"): buffered updates are down-weighted by the same
+            # polynomial discount s(tau)=(1+tau)^-a that FedAsync uses, with
+            # no data-size term. Passing n=1 makes w_i = s(tau_i) exactly.
+            s = (1.0 + max(0, staleness)) ** (-self.stale_a)
+            self.buffer.append((delta, s, 1))
+            if len(self.buffer) >= self.buffer_k:
+                self._flush_buffer(use_staleness=True)
+
+        elif self.strategy == "fedbuff_ns":
+            # Staleness-agnostic buffered average (data-size weights only).
+            # Not FedBuff: kept as an ablation that isolates what the
+            # staleness discount contributes on its own.
+            self.buffer.append((delta, 1.0, n_samples))
+            if len(self.buffer) >= self.buffer_k:
+                self._flush_buffer(use_staleness=False)
+
+        elif self.strategy == "staleness":
+            s = (1.0 + max(0, staleness)) ** (-self.stale_a)
+            self.buffer.append((delta, s, n_samples))
+            if len(self.buffer) >= self.buffer_k:
+                self._flush_buffer(use_staleness=True)
+        else:
+            raise ValueError(self.strategy)
+
+    def _flush_buffer(self, use_staleness: bool):
+        if use_staleness:
+            weights = np.array([w * n for _, w, n in self.buffer], dtype=np.float64)
+        else:
+            weights = np.array([n for _, _, n in self.buffer], dtype=np.float64)
+        weights = weights / (weights.sum() or 1.0)
+        agg = [np.zeros(s, dtype=np.float32) for s in self.shapes]
+        for (delta, _, _), wt in zip(self.buffer, weights):
+            for i, d in enumerate(delta):
+                agg[i] += wt * d
+        self._apply_delta(agg)
+        self.buffer.clear()
+        self._bump_and_eval()
+        self.cond.notify_all()
+
+    # ---- evaluation ----------------------------------------------------
+    def _evaluate_snapshot(self, version, elapsed, params, dn_bytes, up_bytes):
+        """Score a parameter snapshot. Runs on the worker thread, no lock held."""
+        set_params(self.eval_model, params)
+        self.eval_model.eval()
+        n_classes = self.cfg["n_classes"]
+        tp = np.zeros(n_classes); fp = np.zeros(n_classes); fn = np.zeros(n_classes)
+        correct = total = 0
+        with torch.no_grad():
+            for X, y in self.test_loader:
+                X = X.to(self.device)
+                pred = self.eval_model(X).argmax(1).cpu().numpy()
+                yt = y.numpy()
+                correct += int((pred == yt).sum()); total += len(yt)
+                for c in range(n_classes):
+                    tp[c] += int(((pred == c) & (yt == c)).sum())
+                    fp[c] += int(((pred == c) & (yt != c)).sum())
+                    fn[c] += int(((pred != c) & (yt == c)).sum())
+        f1 = np.where((2 * tp + fp + fn) > 0, 2 * tp / (2 * tp + fp + fn), 0.0)
+        macro_f1 = float(f1.mean()); acc = correct / max(total, 1)
+        rec = {"version": version, "wall_s": round(elapsed, 2),
+               "acc": round(acc, 4), "macro_f1": round(macro_f1, 4),
+               "downlink_mb": round(dn_bytes / 1e6, 3),
+               "uplink_mb": round(up_bytes / 1e6, 3)}
+        print(f"[eval] v{version} f1={macro_f1:.4f} acc={acc:.4f} "
+              f"t={elapsed:.1f}s up={rec['uplink_mb']}MB", flush=True)
+        return rec
+
+    def _evaluate(self):
+        set_params(self.model, self.global_params)
+        self.model.eval()
+        n_classes = self.cfg["n_classes"]
+        tp = np.zeros(n_classes); fp = np.zeros(n_classes); fn = np.zeros(n_classes)
+        correct = total = 0
+        with torch.no_grad():
+            for X, y in self.test_loader:
+                X = X.to(self.device)
+                pred = self.model(X).argmax(1).cpu().numpy()
+                yt = y.numpy()
+                correct += int((pred == yt).sum()); total += len(yt)
+                for c in range(n_classes):
+                    tp[c] += int(((pred == c) & (yt == c)).sum())
+                    fp[c] += int(((pred == c) & (yt != c)).sum())
+                    fn[c] += int(((pred != c) & (yt == c)).sum())
+        f1 = np.where((2 * tp + fp + fn) > 0, 2 * tp / (2 * tp + fp + fn), 0.0)
+        macro_f1 = float(f1.mean()); acc = correct / max(total, 1)
+        elapsed = (time.monotonic() - self.t0) if self.t0 else 0.0
+        rec = {"version": self.version, "wall_s": round(elapsed, 2),
+               "acc": round(acc, 4), "macro_f1": round(macro_f1, 4),
+               "downlink_mb": round(self.downlink_bytes / 1e6, 3),
+               "uplink_mb": round(self.uplink_bytes / 1e6, 3)}
+        self.history.append(rec)
+        print(f"[eval] v{self.version} f1={macro_f1:.4f} acc={acc:.4f} "
+              f"t={elapsed:.1f}s up={rec['uplink_mb']}MB", flush=True)
+        if macro_f1 >= self.target_f1:
+            self.done = True
+
+    def dump(self):
+        st = sorted(s for _, _, s in self.push_log)
+        pc: dict[str, int] = {}
+        for _, cid, _ in self.push_log:
+            pc[cid] = pc.get(cid, 0) + 1
+        stale_summary = {
+            "n_pushes": len(st),
+            "mean": round(sum(st) / len(st), 3) if st else 0.0,
+            "p50": st[len(st) // 2] if st else 0,
+            "p90": st[int(len(st) * 0.9)] if st else 0,
+            "max": st[-1] if st else 0,
+            "pushes_per_client": pc,
+        }
+        out = {"config": self.cfg, "history": self.history,
+               "final_version": self.version,
+               "reached_target": any(h["macro_f1"] >= self.target_f1 for h in self.history),
+               "staleness_summary": stale_summary,
+               "push_log": self.push_log}
+        (self.out_dir / "metrics.json").write_text(json.dumps(out, indent=2))
+        print(f"[server] wrote {self.out_dir/'metrics.json'}", flush=True)
+
+
+def make_app(server: ParameterServer) -> FastAPI:
+    app = FastAPI()
+
+    @app.get("/health")
+    def health():
+        return {"strategy": server.strategy, "version": server.version}
+
+    @app.get("/pull")
+    def pull(after_version: int = -1):
+        with server.cond:
+            if server.strategy == "sync" and after_version >= 0:
+                # barrier: block until the round advances or we are done
+                t_end = time.monotonic() + 120
+                while server.version <= after_version and not server.done:
+                    if not server.cond.wait(timeout=t_end - time.monotonic()):
+                        break
+            blob = server.pull_blob()
+            server.downlink_bytes += len(blob)
+            headers = {"X-Version": str(server.version),
+                       "X-Done": "1" if server.done else "0"}
+        return Response(content=blob, media_type="application/octet-stream",
+                        headers=headers)
+
+    @app.post("/push")
+    async def push(request: Request):
+        base_version = int(request.headers["x-base-version"])
+        client_id = request.headers["x-client-id"]
+        n_samples = int(request.headers["x-n-samples"])
+        blob = await request.body()
+        delta = decode(blob, server.shapes)
+        with server.cond:
+            if server.t0 is None:
+                server.t0 = time.monotonic()
+            server.uplink_bytes += len(blob)
+            if not server.done:
+                server.apply_push(client_id, base_version, delta, n_samples)
+            done = server.done
+        return JSONResponse({"version": server.version, "done": done})
+
+    return app

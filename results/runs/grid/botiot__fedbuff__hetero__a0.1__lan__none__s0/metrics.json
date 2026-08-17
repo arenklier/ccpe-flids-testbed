@@ -1,0 +1,98 @@
+{
+  "config": {
+    "buffer_k": 4,
+    "compression": "none",
+    "dataset": "botiot",
+    "eval_every": 5,
+    "hardware": "hetero",
+    "in_dim": 32,
+    "max_seconds": 900,
+    "max_version": 500,
+    "n_classes": 4,
+    "n_clients": 12,
+    "network": "lan",
+    "out_dir": "/out",
+    "part_tag": "a0.1_0",
+    "server_lr": 0.3,
+    "staleness_a": 0.5,
+    "strategy": "fedbuff",
+    "target_macro_f1": 0.62,
+    "test_path": "/part/test.parquet"
+  },
+  "history": [
+    {
+      "version": 5,
+      "wall_s": 10.52,
+      "acc": 0.8394,
+      "macro_f1": 0.423,
+      "downlink_mb": 4.521,
+      "uplink_mb": 3.349
+    },
+    {
+      "version": 10,
+      "wall_s": 20.51,
+      "acc": 0.6521,
+      "macro_f1": 0.2981,
+      "downlink_mb": 8.372,
+      "uplink_mb": 6.698
+    },
+    {
+      "version": 15,
+      "wall_s": 32.33,
+      "acc": 0.6966,
+      "macro_f1": 0.461,
+      "downlink_mb": 11.888,
+      "uplink_mb": 10.046
+    },
+    {
+      "version": 20,
+      "wall_s": 44.81,
+      "acc": 0.8001,
+      "macro_f1": 0.4613,
+      "downlink_mb": 15.07,
+      "uplink_mb": 13.395
+    },
+    {
+      "version": 25,
+      "wall_s": 54.01,
+      "acc": 0.9244,
+      "macro_f1": 0.5669,
+      "downlink_mb": 18.586,
+      "uplink_mb": 16.744
+    },
+    {
+      "version": 30,
+      "wall_s": 63.66,
+      "acc": 0.9154,
+      "macro_f1": 0.6019,
+      "downlink_mb": 21.935,
+      "uplink_mb": 20.093
+    },
+    {
+      "version": 35,
+      "wall_s": 75.58,
+      "acc": 0.9097,
+      "macro_f1": 0.5938,
+      "downlink_mb": 25.284,
+      "uplink_mb": 23.442
+    },
+    {
+      "version": 40,
+      "wall_s": 87.44,
+      "acc": 0.9332,
+      "macro_f1": 0.6191,
+      "downlink_mb": 28.465,
+      "uplink_mb": 26.791
+    },
+    {
+      "version": 45,
+      "wall_s": 96.51,
+      "acc": 0.9406,
+      "macro_f1": 0.6402,
+      "downlink_mb": 31.814,
+      "uplink_mb": 30.139
+    }
+  ],
+  "final_version": 45,
+  "reached_target": true
+}

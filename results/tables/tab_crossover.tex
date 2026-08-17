@@ -1,0 +1,31 @@
+\begin{table}[t]\centering
+\caption{Wall-clock seconds to the target macro-F1 (mean$\pm$std over 3 seeds),
+heterogeneous hardware, $\alpha{=}0.5$, measured with evaluation off the
+aggregator's critical path (\S\ref{sec:measure}). The four strategies for each
+condition were run back to back to keep host drift from separating them. The
+last column is each strategy's own LAN$\rightarrow$mixed degradation, which is
+the quantity that separates the two families: the synchronous barrier costs
+$2.4$--$5.2\times$ under network heterogeneity, every asynchronous rule
+$1.1$--$2.2\times$.}
+\label{tab:crossover}
+\begin{tabular}{ll rr r r}
+\toprule
+Dataset & Strategy & LAN (s) & Mixed (s) & Degradation & Best-F1 \\
+\midrule
+CICIDS2017 & Sync FedAvg & 14.0$\pm$0.5 & 73.5$\pm$7.1 & $5.2\times$ & 0.674 \\
+ & FedAsync & 3.4$\pm$0.3 & 3.8$\pm$0.0 & $1.1\times$ & 0.690 \\
+ & FedBuff & 4.2$\pm$0.1 & 6.1$\pm$0.7 & $1.5\times$ & 0.647 \\
+ & Staleness (ours) & 6.5$\pm$0.9 & 11.2$\pm$0.6 & $1.7\times$ & \textbf{0.691} \\
+\midrule
+N-BaIoT & Sync FedAvg & 9.1$\pm$1.3 & 32.0$\pm$2.2 & $3.5\times$ & 0.689 \\
+ & FedAsync & 3.9$\pm$0.1 & 5.1$\pm$1.8 & $1.3\times$ & 0.694 \\
+ & FedBuff & 5.2$\pm$0.6 & 11.2$\pm$4.4 & $2.2\times$ & \textbf{0.702} \\
+ & Staleness (ours) & 5.4$\pm$0.6 & 9.9$\pm$4.6 & $1.8\times$ & \textbf{0.702} \\
+\midrule
+Bot-IoT & Sync FedAvg & 8.5$\pm$0.8 & 20.0$\pm$3.1 & $2.4\times$ & 0.672 \\
+ & FedAsync & 4.0$\pm$0.4 & 4.6$\pm$1.1 & $1.2\times$ & \textbf{0.797} \\
+ & FedBuff & 4.4$\pm$1.3 & 5.2$\pm$0.9 & $1.2\times$ & \textbf{0.797} \\
+ & Staleness (ours) & 3.9$\pm$1.4 & 6.3$\pm$0.2 & $1.6\times$ & 0.724 \\
+\bottomrule
+\end{tabular}
+\end{table}

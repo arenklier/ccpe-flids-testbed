@@ -1,0 +1,98 @@
+{
+  "config": {
+    "buffer_k": 4,
+    "compression": "topk",
+    "dataset": "nbaiot",
+    "eval_every": 5,
+    "hardware": "hetero",
+    "in_dim": 115,
+    "max_seconds": 900,
+    "max_version": 500,
+    "n_classes": 11,
+    "n_clients": 12,
+    "network": "lan",
+    "out_dir": "/out",
+    "part_tag": "a0.5_0",
+    "server_lr": 0.3,
+    "staleness_a": 0.5,
+    "strategy": "fedasync",
+    "target_macro_f1": 0.68,
+    "test_path": "/part/test.parquet"
+  },
+  "history": [
+    {
+      "version": 5,
+      "wall_s": 6.64,
+      "acc": 0.5614,
+      "macro_f1": 0.4736,
+      "downlink_mb": 2.304,
+      "uplink_mb": 0.256
+    },
+    {
+      "version": 10,
+      "wall_s": 13.34,
+      "acc": 0.6369,
+      "macro_f1": 0.5747,
+      "downlink_mb": 5.377,
+      "uplink_mb": 0.512
+    },
+    {
+      "version": 15,
+      "wall_s": 20.33,
+      "acc": 0.6732,
+      "macro_f1": 0.6222,
+      "downlink_mb": 5.377,
+      "uplink_mb": 0.768
+    },
+    {
+      "version": 20,
+      "wall_s": 25.74,
+      "acc": 0.659,
+      "macro_f1": 0.6003,
+      "downlink_mb": 5.377,
+      "uplink_mb": 1.024
+    },
+    {
+      "version": 25,
+      "wall_s": 30.29,
+      "acc": 0.6341,
+      "macro_f1": 0.5573,
+      "downlink_mb": 8.962,
+      "uplink_mb": 1.28
+    },
+    {
+      "version": 30,
+      "wall_s": 34.53,
+      "acc": 0.6807,
+      "macro_f1": 0.6251,
+      "downlink_mb": 9.218,
+      "uplink_mb": 1.537
+    },
+    {
+      "version": 35,
+      "wall_s": 38.89,
+      "acc": 0.6699,
+      "macro_f1": 0.618,
+      "downlink_mb": 9.218,
+      "uplink_mb": 1.793
+    },
+    {
+      "version": 40,
+      "wall_s": 43.74,
+      "acc": 0.6643,
+      "macro_f1": 0.6124,
+      "downlink_mb": 12.546,
+      "uplink_mb": 2.049
+    },
+    {
+      "version": 45,
+      "wall_s": 47.8,
+      "acc": 0.7226,
+      "macro_f1": 0.6933,
+      "downlink_mb": 13.058,
+      "uplink_mb": 2.305
+    }
+  ],
+  "final_version": 45,
+  "reached_target": true
+}

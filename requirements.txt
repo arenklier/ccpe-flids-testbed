@@ -1,0 +1,10 @@
+torch>=2.3
+numpy
+pandas
+pyarrow
+scikit-learn
+pyyaml
+fastapi
+uvicorn[standard]
+requests
+matplotlib

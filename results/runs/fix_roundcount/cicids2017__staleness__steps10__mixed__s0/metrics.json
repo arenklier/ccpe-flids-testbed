@@ -1,0 +1,458 @@
+{
+  "config": {
+    "buffer_k": 4,
+    "compression": "none",
+    "dataset": "cicids2017",
+    "eval_every": 5,
+    "hardware": "hetero",
+    "in_dim": 76,
+    "max_seconds": 500,
+    "max_version": 500,
+    "n_classes": 12,
+    "n_clients": 12,
+    "network": "mixed",
+    "out_dir": "/out",
+    "part_tag": "a0.5_0",
+    "server_lr": 0.3,
+    "staleness_a": 0.5,
+    "strategy": "staleness",
+    "target_macro_f1": 0.6,
+    "test_path": "/part/test.parquet"
+  },
+  "history": [
+    {
+      "version": 5,
+      "wall_s": 10.02,
+      "acc": 0.7893,
+      "macro_f1": 0.0735,
+      "downlink_mb": 5.416,
+      "uplink_mb": 4.332
+    },
+    {
+      "version": 10,
+      "wall_s": 19.37,
+      "acc": 0.7894,
+      "macro_f1": 0.0739,
+      "downlink_mb": 10.831,
+      "uplink_mb": 8.665
+    },
+    {
+      "version": 15,
+      "wall_s": 30.5,
+      "acc": 0.8628,
+      "macro_f1": 0.1415,
+      "downlink_mb": 15.38,
+      "uplink_mb": 12.998
+    },
+    {
+      "version": 20,
+      "wall_s": 42.1,
+      "acc": 0.9159,
+      "macro_f1": 0.2161,
+      "downlink_mb": 18.197,
+      "uplink_mb": 17.33
+    },
+    {
+      "version": 25,
+      "wall_s": 52.99,
+      "acc": 0.916,
+      "macro_f1": 0.2163,
+      "downlink_mb": 24.045,
+      "uplink_mb": 21.663
+    },
+    {
+      "version": 30,
+      "wall_s": 62.01,
+      "acc": 0.9173,
+      "macro_f1": 0.2528,
+      "downlink_mb": 27.728,
+      "uplink_mb": 25.995
+    },
+    {
+      "version": 35,
+      "wall_s": 70.88,
+      "acc": 0.9426,
+      "macro_f1": 0.2831,
+      "downlink_mb": 32.06,
+      "uplink_mb": 30.328
+    },
+    {
+      "version": 40,
+      "wall_s": 80.06,
+      "acc": 0.9586,
+      "macro_f1": 0.3015,
+      "downlink_mb": 35.526,
+      "uplink_mb": 34.66
+    },
+    {
+      "version": 45,
+      "wall_s": 89.49,
+      "acc": 0.9641,
+      "macro_f1": 0.3095,
+      "downlink_mb": 41.375,
+      "uplink_mb": 38.992
+    },
+    {
+      "version": 50,
+      "wall_s": 98.64,
+      "acc": 0.9355,
+      "macro_f1": 0.2888,
+      "downlink_mb": 45.058,
+      "uplink_mb": 43.325
+    },
+    {
+      "version": 55,
+      "wall_s": 107.7,
+      "acc": 0.9656,
+      "macro_f1": 0.3161,
+      "downlink_mb": 48.524,
+      "uplink_mb": 47.657
+    },
+    {
+      "version": 60,
+      "wall_s": 116.76,
+      "acc": 0.9681,
+      "macro_f1": 0.3436,
+      "downlink_mb": 53.723,
+      "uplink_mb": 51.99
+    },
+    {
+      "version": 65,
+      "wall_s": 125.94,
+      "acc": 0.9681,
+      "macro_f1": 0.3644,
+      "downlink_mb": 58.705,
+      "uplink_mb": 56.322
+    },
+    {
+      "version": 70,
+      "wall_s": 135.1,
+      "acc": 0.9702,
+      "macro_f1": 0.3721,
+      "downlink_mb": 62.171,
+      "uplink_mb": 60.655
+    },
+    {
+      "version": 75,
+      "wall_s": 144.43,
+      "acc": 0.9413,
+      "macro_f1": 0.3525,
+      "downlink_mb": 66.287,
+      "uplink_mb": 64.987
+    },
+    {
+      "version": 80,
+      "wall_s": 153.59,
+      "acc": 0.9712,
+      "macro_f1": 0.3776,
+      "downlink_mb": 70.836,
+      "uplink_mb": 69.32
+    },
+    {
+      "version": 85,
+      "wall_s": 162.81,
+      "acc": 0.9615,
+      "macro_f1": 0.3814,
+      "downlink_mb": 76.035,
+      "uplink_mb": 73.653
+    },
+    {
+      "version": 90,
+      "wall_s": 172.09,
+      "acc": 0.9732,
+      "macro_f1": 0.3848,
+      "downlink_mb": 80.368,
+      "uplink_mb": 77.985
+    },
+    {
+      "version": 95,
+      "wall_s": 181.35,
+      "acc": 0.9736,
+      "macro_f1": 0.3955,
+      "downlink_mb": 83.617,
+      "uplink_mb": 82.317
+    },
+    {
+      "version": 100,
+      "wall_s": 190.23,
+      "acc": 0.9455,
+      "macro_f1": 0.3767,
+      "downlink_mb": 88.383,
+      "uplink_mb": 86.65
+    },
+    {
+      "version": 105,
+      "wall_s": 199.32,
+      "acc": 0.9735,
+      "macro_f1": 0.4001,
+      "downlink_mb": 93.365,
+      "uplink_mb": 90.983
+    },
+    {
+      "version": 110,
+      "wall_s": 208.74,
+      "acc": 0.9735,
+      "macro_f1": 0.4017,
+      "downlink_mb": 97.048,
+      "uplink_mb": 95.315
+    },
+    {
+      "version": 115,
+      "wall_s": 217.4,
+      "acc": 0.9738,
+      "macro_f1": 0.4027,
+      "downlink_mb": 100.947,
+      "uplink_mb": 99.647
+    },
+    {
+      "version": 120,
+      "wall_s": 226.66,
+      "acc": 0.9461,
+      "macro_f1": 0.3847,
+      "downlink_mb": 105.496,
+      "uplink_mb": 103.98
+    },
+    {
+      "version": 125,
+      "wall_s": 235.87,
+      "acc": 0.9739,
+      "macro_f1": 0.4066,
+      "downlink_mb": 110.695,
+      "uplink_mb": 108.312
+    },
+    {
+      "version": 130,
+      "wall_s": 244.73,
+      "acc": 0.9774,
+      "macro_f1": 0.4907,
+      "downlink_mb": 114.378,
+      "uplink_mb": 112.645
+    },
+    {
+      "version": 135,
+      "wall_s": 253.77,
+      "acc": 0.9751,
+      "macro_f1": 0.4131,
+      "downlink_mb": 118.277,
+      "uplink_mb": 116.978
+    },
+    {
+      "version": 140,
+      "wall_s": 262.86,
+      "acc": 0.9777,
+      "macro_f1": 0.4939,
+      "downlink_mb": 122.826,
+      "uplink_mb": 121.31
+    },
+    {
+      "version": 145,
+      "wall_s": 271.93,
+      "acc": 0.9769,
+      "macro_f1": 0.4867,
+      "downlink_mb": 128.025,
+      "uplink_mb": 125.642
+    },
+    {
+      "version": 150,
+      "wall_s": 280.64,
+      "acc": 0.9763,
+      "macro_f1": 0.4853,
+      "downlink_mb": 131.708,
+      "uplink_mb": 129.975
+    },
+    {
+      "version": 155,
+      "wall_s": 289.0,
+      "acc": 0.9785,
+      "macro_f1": 0.555,
+      "downlink_mb": 135.391,
+      "uplink_mb": 134.308
+    },
+    {
+      "version": 160,
+      "wall_s": 297.83,
+      "acc": 0.9782,
+      "macro_f1": 0.554,
+      "downlink_mb": 140.373,
+      "uplink_mb": 138.64
+    },
+    {
+      "version": 165,
+      "wall_s": 307.06,
+      "acc": 0.9773,
+      "macro_f1": 0.5027,
+      "downlink_mb": 145.139,
+      "uplink_mb": 142.972
+    },
+    {
+      "version": 170,
+      "wall_s": 315.94,
+      "acc": 0.9778,
+      "macro_f1": 0.5637,
+      "downlink_mb": 148.821,
+      "uplink_mb": 147.305
+    },
+    {
+      "version": 175,
+      "wall_s": 325.31,
+      "acc": 0.9788,
+      "macro_f1": 0.5578,
+      "downlink_mb": 152.937,
+      "uplink_mb": 151.637
+    },
+    {
+      "version": 180,
+      "wall_s": 334.62,
+      "acc": 0.9785,
+      "macro_f1": 0.5605,
+      "downlink_mb": 157.703,
+      "uplink_mb": 155.97
+    },
+    {
+      "version": 185,
+      "wall_s": 344.46,
+      "acc": 0.9789,
+      "macro_f1": 0.5603,
+      "downlink_mb": 162.469,
+      "uplink_mb": 160.303
+    },
+    {
+      "version": 190,
+      "wall_s": 353.96,
+      "acc": 0.9793,
+      "macro_f1": 0.5678,
+      "downlink_mb": 166.151,
+      "uplink_mb": 164.635
+    },
+    {
+      "version": 195,
+      "wall_s": 363.4,
+      "acc": 0.9788,
+      "macro_f1": 0.5716,
+      "downlink_mb": 170.267,
+      "uplink_mb": 168.968
+    },
+    {
+      "version": 200,
+      "wall_s": 372.34,
+      "acc": 0.9798,
+      "macro_f1": 0.5735,
+      "downlink_mb": 175.033,
+      "uplink_mb": 173.3
+    },
+    {
+      "version": 205,
+      "wall_s": 382.1,
+      "acc": 0.9797,
+      "macro_f1": 0.5627,
+      "downlink_mb": 180.015,
+      "uplink_mb": 177.632
+    },
+    {
+      "version": 210,
+      "wall_s": 391.85,
+      "acc": 0.979,
+      "macro_f1": 0.57,
+      "downlink_mb": 183.698,
+      "uplink_mb": 181.965
+    },
+    {
+      "version": 215,
+      "wall_s": 400.66,
+      "acc": 0.9793,
+      "macro_f1": 0.5723,
+      "downlink_mb": 187.164,
+      "uplink_mb": 186.298
+    },
+    {
+      "version": 220,
+      "wall_s": 409.85,
+      "acc": 0.9797,
+      "macro_f1": 0.5755,
+      "downlink_mb": 191.93,
+      "uplink_mb": 190.63
+    },
+    {
+      "version": 225,
+      "wall_s": 419.62,
+      "acc": 0.9802,
+      "macro_f1": 0.578,
+      "downlink_mb": 197.345,
+      "uplink_mb": 194.963
+    },
+    {
+      "version": 230,
+      "wall_s": 429.21,
+      "acc": 0.9772,
+      "macro_f1": 0.5779,
+      "downlink_mb": 200.811,
+      "uplink_mb": 199.295
+    },
+    {
+      "version": 235,
+      "wall_s": 439.13,
+      "acc": 0.98,
+      "macro_f1": 0.5885,
+      "downlink_mb": 204.927,
+      "uplink_mb": 203.627
+    },
+    {
+      "version": 240,
+      "wall_s": 448.21,
+      "acc": 0.9783,
+      "macro_f1": 0.5332,
+      "downlink_mb": 209.476,
+      "uplink_mb": 207.96
+    },
+    {
+      "version": 245,
+      "wall_s": 458.07,
+      "acc": 0.9804,
+      "macro_f1": 0.5977,
+      "downlink_mb": 214.675,
+      "uplink_mb": 212.292
+    },
+    {
+      "version": 250,
+      "wall_s": 467.27,
+      "acc": 0.9809,
+      "macro_f1": 0.5984,
+      "downlink_mb": 218.358,
+      "uplink_mb": 216.625
+    },
+    {
+      "version": 255,
+      "wall_s": 477.12,
+      "acc": 0.9807,
+      "macro_f1": 0.5971,
+      "downlink_mb": 222.257,
+      "uplink_mb": 220.958
+    },
+    {
+      "version": 260,
+      "wall_s": 486.4,
+      "acc": 0.9819,
+      "macro_f1": 0.5994,
+      "downlink_mb": 226.806,
+      "uplink_mb": 225.29
+    },
+    {
+      "version": 265,
+      "wall_s": 495.63,
+      "acc": 0.9815,
+      "macro_f1": 0.5945,
+      "downlink_mb": 232.005,
+      "uplink_mb": 229.623
+    },
+    {
+      "version": 270,
+      "wall_s": 504.66,
+      "acc": 0.9805,
+      "macro_f1": 0.5946,
+      "downlink_mb": 235.688,
+      "uplink_mb": 233.955
+    }
+  ],
+  "final_version": 270,
+  "reached_target": false
+}

@@ -1,0 +1,99 @@
+{
+  "config": {
+    "buffer_k": 4,
+    "compression": "none",
+    "dataset": "cicids2017",
+    "eval_every": 5,
+    "hardware": "hetero",
+    "in_dim": 76,
+    "max_seconds": 500,
+    "max_version": 500,
+    "model_size": "small",
+    "n_classes": 12,
+    "n_clients": 12,
+    "network": "lan",
+    "out_dir": "/out",
+    "part_tag": "a0.5_2",
+    "server_lr": 0.3,
+    "staleness_a": 0.5,
+    "strategy": "staleness",
+    "target_macro_f1": 0.5,
+    "test_path": "/part/test.parquet"
+  },
+  "history": [
+    {
+      "version": 5,
+      "wall_s": 9.39,
+      "acc": 0.8869,
+      "macro_f1": 0.2998,
+      "downlink_mb": 5.632,
+      "uplink_mb": 4.332
+    },
+    {
+      "version": 10,
+      "wall_s": 17.92,
+      "acc": 0.9191,
+      "macro_f1": 0.3073,
+      "downlink_mb": 11.048,
+      "uplink_mb": 8.665
+    },
+    {
+      "version": 15,
+      "wall_s": 27.6,
+      "acc": 0.9696,
+      "macro_f1": 0.4487,
+      "downlink_mb": 15.38,
+      "uplink_mb": 12.998
+    },
+    {
+      "version": 20,
+      "wall_s": 37.22,
+      "acc": 0.9744,
+      "macro_f1": 0.4643,
+      "downlink_mb": 19.713,
+      "uplink_mb": 17.33
+    },
+    {
+      "version": 25,
+      "wall_s": 46.82,
+      "acc": 0.9758,
+      "macro_f1": 0.4587,
+      "downlink_mb": 24.045,
+      "uplink_mb": 21.663
+    },
+    {
+      "version": 30,
+      "wall_s": 56.15,
+      "acc": 0.9762,
+      "macro_f1": 0.4564,
+      "downlink_mb": 28.378,
+      "uplink_mb": 25.995
+    },
+    {
+      "version": 35,
+      "wall_s": 64.73,
+      "acc": 0.9778,
+      "macro_f1": 0.494,
+      "downlink_mb": 32.71,
+      "uplink_mb": 30.328
+    },
+    {
+      "version": 40,
+      "wall_s": 73.97,
+      "acc": 0.9774,
+      "macro_f1": 0.4759,
+      "downlink_mb": 37.043,
+      "uplink_mb": 34.66
+    },
+    {
+      "version": 45,
+      "wall_s": 83.39,
+      "acc": 0.9803,
+      "macro_f1": 0.5823,
+      "downlink_mb": 41.375,
+      "uplink_mb": 38.992
+    }
+  ],
+  "final_version": 45,
+  "reached_target": true
+}

@@ -1,0 +1,98 @@
+{
+  "config": {
+    "buffer_k": 4,
+    "compression": "none",
+    "dataset": "cicids2017",
+    "eval_every": 5,
+    "hardware": "hetero",
+    "in_dim": 76,
+    "max_seconds": 900,
+    "max_version": 500,
+    "n_classes": 12,
+    "n_clients": 12,
+    "network": "lan",
+    "out_dir": "/out",
+    "part_tag": "a0.1_1",
+    "server_lr": 0.3,
+    "staleness_a": 0.5,
+    "strategy": "fedbuff",
+    "target_macro_f1": 0.6,
+    "test_path": "/part/test.parquet"
+  },
+  "history": [
+    {
+      "version": 5,
+      "wall_s": 8.28,
+      "acc": 0.8133,
+      "macro_f1": 0.157,
+      "downlink_mb": 5.416,
+      "uplink_mb": 4.332
+    },
+    {
+      "version": 10,
+      "wall_s": 17.01,
+      "acc": 0.8198,
+      "macro_f1": 0.2592,
+      "downlink_mb": 11.048,
+      "uplink_mb": 8.665
+    },
+    {
+      "version": 15,
+      "wall_s": 25.69,
+      "acc": 0.9597,
+      "macro_f1": 0.3537,
+      "downlink_mb": 15.38,
+      "uplink_mb": 12.998
+    },
+    {
+      "version": 20,
+      "wall_s": 30.34,
+      "acc": 0.9576,
+      "macro_f1": 0.3518,
+      "downlink_mb": 19.713,
+      "uplink_mb": 17.33
+    },
+    {
+      "version": 25,
+      "wall_s": 35.71,
+      "acc": 0.9616,
+      "macro_f1": 0.4008,
+      "downlink_mb": 23.829,
+      "uplink_mb": 21.663
+    },
+    {
+      "version": 30,
+      "wall_s": 41.63,
+      "acc": 0.9624,
+      "macro_f1": 0.5266,
+      "downlink_mb": 28.161,
+      "uplink_mb": 25.995
+    },
+    {
+      "version": 35,
+      "wall_s": 46.88,
+      "acc": 0.9579,
+      "macro_f1": 0.3699,
+      "downlink_mb": 32.494,
+      "uplink_mb": 30.328
+    },
+    {
+      "version": 40,
+      "wall_s": 53.68,
+      "acc": 0.9519,
+      "macro_f1": 0.5305,
+      "downlink_mb": 37.043,
+      "uplink_mb": 34.66
+    },
+    {
+      "version": 45,
+      "wall_s": 62.34,
+      "acc": 0.9633,
+      "macro_f1": 0.6023,
+      "downlink_mb": 41.375,
+      "uplink_mb": 38.992
+    }
+  ],
+  "final_version": 45,
+  "reached_target": true
+}

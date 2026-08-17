@@ -1,0 +1,99 @@
+{
+  "config": {
+    "buffer_k": 4,
+    "compression": "none",
+    "dataset": "cicids2017",
+    "eval_every": 5,
+    "hardware": "hetero",
+    "in_dim": 76,
+    "max_seconds": 400,
+    "max_version": 400,
+    "model_size": "small",
+    "n_classes": 12,
+    "n_clients": 12,
+    "network": "mixed",
+    "out_dir": "/out",
+    "part_tag": "a0.5_0",
+    "server_lr": 0.3,
+    "staleness_a": 0.5,
+    "strategy": "staleness",
+    "target_macro_f1": 0.6,
+    "test_path": "/part/test.parquet"
+  },
+  "history": [
+    {
+      "version": 5,
+      "wall_s": 10.49,
+      "acc": 0.8017,
+      "macro_f1": 0.133,
+      "downlink_mb": 4.982,
+      "uplink_mb": 4.332
+    },
+    {
+      "version": 10,
+      "wall_s": 21.06,
+      "acc": 0.936,
+      "macro_f1": 0.3167,
+      "downlink_mb": 11.048,
+      "uplink_mb": 8.665
+    },
+    {
+      "version": 15,
+      "wall_s": 30.18,
+      "acc": 0.9527,
+      "macro_f1": 0.3214,
+      "downlink_mb": 13.864,
+      "uplink_mb": 12.998
+    },
+    {
+      "version": 20,
+      "wall_s": 40.0,
+      "acc": 0.9684,
+      "macro_f1": 0.4331,
+      "downlink_mb": 19.713,
+      "uplink_mb": 17.33
+    },
+    {
+      "version": 25,
+      "wall_s": 49.73,
+      "acc": 0.9454,
+      "macro_f1": 0.4466,
+      "downlink_mb": 22.529,
+      "uplink_mb": 21.663
+    },
+    {
+      "version": 30,
+      "wall_s": 59.77,
+      "acc": 0.9765,
+      "macro_f1": 0.5044,
+      "downlink_mb": 27.945,
+      "uplink_mb": 25.995
+    },
+    {
+      "version": 35,
+      "wall_s": 68.86,
+      "acc": 0.9767,
+      "macro_f1": 0.4402,
+      "downlink_mb": 30.761,
+      "uplink_mb": 30.328
+    },
+    {
+      "version": 40,
+      "wall_s": 78.35,
+      "acc": 0.9787,
+      "macro_f1": 0.5412,
+      "downlink_mb": 37.043,
+      "uplink_mb": 34.66
+    },
+    {
+      "version": 45,
+      "wall_s": 87.66,
+      "acc": 0.9818,
+      "macro_f1": 0.6711,
+      "downlink_mb": 40.076,
+      "uplink_mb": 38.992
+    }
+  ],
+  "final_version": 45,
+  "reached_target": true
+}

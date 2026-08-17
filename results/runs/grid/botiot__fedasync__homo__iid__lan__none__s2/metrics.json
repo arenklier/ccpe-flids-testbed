@@ -1,0 +1,50 @@
+{
+  "config": {
+    "buffer_k": 4,
+    "compression": "none",
+    "dataset": "botiot",
+    "eval_every": 5,
+    "hardware": "homo",
+    "in_dim": 32,
+    "max_seconds": 900,
+    "max_version": 500,
+    "n_classes": 4,
+    "n_clients": 12,
+    "network": "lan",
+    "out_dir": "/out",
+    "part_tag": "iid_2",
+    "server_lr": 0.3,
+    "staleness_a": 0.5,
+    "strategy": "fedasync",
+    "target_macro_f1": 0.62,
+    "test_path": "/part/test.parquet"
+  },
+  "history": [
+    {
+      "version": 5,
+      "wall_s": 8.34,
+      "acc": 0.924,
+      "macro_f1": 0.5952,
+      "downlink_mb": 1.842,
+      "uplink_mb": 0.837
+    },
+    {
+      "version": 10,
+      "wall_s": 17.31,
+      "acc": 0.9246,
+      "macro_f1": 0.5851,
+      "downlink_mb": 2.344,
+      "uplink_mb": 1.674
+    },
+    {
+      "version": 15,
+      "wall_s": 30.13,
+      "acc": 0.9347,
+      "macro_f1": 0.629,
+      "downlink_mb": 4.186,
+      "uplink_mb": 2.512
+    }
+  ],
+  "final_version": 15,
+  "reached_target": true
+}

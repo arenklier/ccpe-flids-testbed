@@ -1,0 +1,98 @@
+{
+  "config": {
+    "buffer_k": 4,
+    "compression": "none",
+    "dataset": "botiot",
+    "eval_every": 5,
+    "hardware": "hetero",
+    "in_dim": 32,
+    "max_seconds": 900,
+    "max_version": 500,
+    "n_classes": 4,
+    "n_clients": 12,
+    "network": "lan",
+    "out_dir": "/out",
+    "part_tag": "a0.1_1",
+    "server_lr": 0.3,
+    "staleness_a": 0.5,
+    "strategy": "fedbuff",
+    "target_macro_f1": 0.62,
+    "test_path": "/part/test.parquet"
+  },
+  "history": [
+    {
+      "version": 5,
+      "wall_s": 13.33,
+      "acc": 0.4551,
+      "macro_f1": 0.2647,
+      "downlink_mb": 4.353,
+      "uplink_mb": 3.349
+    },
+    {
+      "version": 10,
+      "wall_s": 22.72,
+      "acc": 0.4549,
+      "macro_f1": 0.2659,
+      "downlink_mb": 8.539,
+      "uplink_mb": 6.698
+    },
+    {
+      "version": 15,
+      "wall_s": 31.62,
+      "acc": 0.5155,
+      "macro_f1": 0.3595,
+      "downlink_mb": 11.721,
+      "uplink_mb": 10.046
+    },
+    {
+      "version": 20,
+      "wall_s": 40.94,
+      "acc": 0.5203,
+      "macro_f1": 0.3228,
+      "downlink_mb": 15.237,
+      "uplink_mb": 13.395
+    },
+    {
+      "version": 25,
+      "wall_s": 52.11,
+      "acc": 0.6115,
+      "macro_f1": 0.4264,
+      "downlink_mb": 18.586,
+      "uplink_mb": 16.744
+    },
+    {
+      "version": 30,
+      "wall_s": 60.44,
+      "acc": 0.7233,
+      "macro_f1": 0.554,
+      "downlink_mb": 21.767,
+      "uplink_mb": 20.093
+    },
+    {
+      "version": 35,
+      "wall_s": 70.72,
+      "acc": 0.8512,
+      "macro_f1": 0.6147,
+      "downlink_mb": 25.284,
+      "uplink_mb": 23.442
+    },
+    {
+      "version": 40,
+      "wall_s": 81.09,
+      "acc": 0.6154,
+      "macro_f1": 0.4392,
+      "downlink_mb": 28.632,
+      "uplink_mb": 26.791
+    },
+    {
+      "version": 45,
+      "wall_s": 91.83,
+      "acc": 0.9271,
+      "macro_f1": 0.6805,
+      "downlink_mb": 31.981,
+      "uplink_mb": 30.139
+    }
+  ],
+  "final_version": 45,
+  "reached_target": true
+}

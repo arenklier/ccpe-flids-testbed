@@ -1,0 +1,58 @@
+{
+  "config": {
+    "buffer_k": 4,
+    "compression": "none",
+    "dataset": "cicids2017",
+    "eval_every": 5,
+    "hardware": "hetero",
+    "in_dim": 76,
+    "max_seconds": 500,
+    "max_version": 500,
+    "n_classes": 12,
+    "n_clients": 12,
+    "network": "lan",
+    "out_dir": "/out",
+    "part_tag": "a0.5_2",
+    "server_lr": 0.3,
+    "staleness_a": 0.5,
+    "strategy": "fedasync",
+    "target_macro_f1": 0.6,
+    "test_path": "/part/test.parquet"
+  },
+  "history": [
+    {
+      "version": 5,
+      "wall_s": 9.49,
+      "acc": 0.9634,
+      "macro_f1": 0.5475,
+      "downlink_mb": 2.166,
+      "uplink_mb": 1.083
+    },
+    {
+      "version": 10,
+      "wall_s": 18.72,
+      "acc": 0.9647,
+      "macro_f1": 0.4694,
+      "downlink_mb": 3.033,
+      "uplink_mb": 2.166
+    },
+    {
+      "version": 15,
+      "wall_s": 28.01,
+      "acc": 0.9755,
+      "macro_f1": 0.4744,
+      "downlink_mb": 5.632,
+      "uplink_mb": 3.249
+    },
+    {
+      "version": 20,
+      "wall_s": 36.28,
+      "acc": 0.9827,
+      "macro_f1": 0.6954,
+      "downlink_mb": 5.632,
+      "uplink_mb": 4.332
+    }
+  ],
+  "final_version": 20,
+  "reached_target": true
+}

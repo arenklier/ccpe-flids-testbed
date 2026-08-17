@@ -1,0 +1,194 @@
+{
+  "config": {
+    "buffer_k": 4,
+    "compression": "none",
+    "dataset": "cicids2017",
+    "eval_every": 5,
+    "hardware": "hetero",
+    "in_dim": 76,
+    "max_seconds": 500,
+    "max_version": 500,
+    "n_classes": 12,
+    "n_clients": 12,
+    "network": "lan",
+    "out_dir": "/out",
+    "part_tag": "a0.5_2",
+    "server_lr": 1.0,
+    "staleness_a": 0.5,
+    "strategy": "sync",
+    "target_macro_f1": 0.6,
+    "test_path": "/part/test.parquet"
+  },
+  "history": [
+    {
+      "version": 5,
+      "wall_s": 16.16,
+      "acc": 0.924,
+      "macro_f1": 0.275,
+      "downlink_mb": 12.998,
+      "uplink_mb": 12.998
+    },
+    {
+      "version": 10,
+      "wall_s": 26.2,
+      "acc": 0.9557,
+      "macro_f1": 0.3003,
+      "downlink_mb": 25.995,
+      "uplink_mb": 25.995
+    },
+    {
+      "version": 15,
+      "wall_s": 35.58,
+      "acc": 0.965,
+      "macro_f1": 0.3113,
+      "downlink_mb": 38.992,
+      "uplink_mb": 38.992
+    },
+    {
+      "version": 20,
+      "wall_s": 44.81,
+      "acc": 0.966,
+      "macro_f1": 0.3146,
+      "downlink_mb": 51.99,
+      "uplink_mb": 51.99
+    },
+    {
+      "version": 25,
+      "wall_s": 54.09,
+      "acc": 0.9721,
+      "macro_f1": 0.4196,
+      "downlink_mb": 64.987,
+      "uplink_mb": 64.987
+    },
+    {
+      "version": 30,
+      "wall_s": 64.11,
+      "acc": 0.9739,
+      "macro_f1": 0.4313,
+      "downlink_mb": 77.985,
+      "uplink_mb": 77.985
+    },
+    {
+      "version": 35,
+      "wall_s": 74.19,
+      "acc": 0.9755,
+      "macro_f1": 0.4526,
+      "downlink_mb": 90.983,
+      "uplink_mb": 90.983
+    },
+    {
+      "version": 40,
+      "wall_s": 83.63,
+      "acc": 0.9753,
+      "macro_f1": 0.4429,
+      "downlink_mb": 103.98,
+      "uplink_mb": 103.98
+    },
+    {
+      "version": 45,
+      "wall_s": 93.15,
+      "acc": 0.9745,
+      "macro_f1": 0.4456,
+      "downlink_mb": 116.978,
+      "uplink_mb": 116.978
+    },
+    {
+      "version": 50,
+      "wall_s": 102.69,
+      "acc": 0.9768,
+      "macro_f1": 0.4736,
+      "downlink_mb": 129.975,
+      "uplink_mb": 129.975
+    },
+    {
+      "version": 55,
+      "wall_s": 112.08,
+      "acc": 0.9768,
+      "macro_f1": 0.4623,
+      "downlink_mb": 142.972,
+      "uplink_mb": 142.972
+    },
+    {
+      "version": 60,
+      "wall_s": 121.32,
+      "acc": 0.9755,
+      "macro_f1": 0.4662,
+      "downlink_mb": 155.97,
+      "uplink_mb": 155.97
+    },
+    {
+      "version": 65,
+      "wall_s": 130.56,
+      "acc": 0.9777,
+      "macro_f1": 0.4814,
+      "downlink_mb": 168.968,
+      "uplink_mb": 168.968
+    },
+    {
+      "version": 70,
+      "wall_s": 140.54,
+      "acc": 0.9774,
+      "macro_f1": 0.4777,
+      "downlink_mb": 181.965,
+      "uplink_mb": 181.965
+    },
+    {
+      "version": 75,
+      "wall_s": 150.09,
+      "acc": 0.978,
+      "macro_f1": 0.4931,
+      "downlink_mb": 194.963,
+      "uplink_mb": 194.963
+    },
+    {
+      "version": 80,
+      "wall_s": 159.61,
+      "acc": 0.979,
+      "macro_f1": 0.5102,
+      "downlink_mb": 207.96,
+      "uplink_mb": 207.96
+    },
+    {
+      "version": 85,
+      "wall_s": 168.98,
+      "acc": 0.979,
+      "macro_f1": 0.5093,
+      "downlink_mb": 220.958,
+      "uplink_mb": 220.958
+    },
+    {
+      "version": 90,
+      "wall_s": 178.05,
+      "acc": 0.9786,
+      "macro_f1": 0.5125,
+      "downlink_mb": 233.955,
+      "uplink_mb": 233.955
+    },
+    {
+      "version": 95,
+      "wall_s": 187.47,
+      "acc": 0.9784,
+      "macro_f1": 0.5118,
+      "downlink_mb": 246.952,
+      "uplink_mb": 246.952
+    },
+    {
+      "version": 100,
+      "wall_s": 196.91,
+      "acc": 0.9795,
+      "macro_f1": 0.5188,
+      "downlink_mb": 259.95,
+      "uplink_mb": 259.95
+    },
+    {
+      "version": 105,
+      "wall_s": 206.2,
+      "acc": 0.9826,
+      "macro_f1": 0.6723,
+      "downlink_mb": 272.947,
+      "uplink_mb": 272.947
+    }
+  ],
+  "final_version": 105,
+  "reached_target": true
+}

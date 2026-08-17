@@ -1,0 +1,98 @@
+{
+  "config": {
+    "buffer_k": 2,
+    "compression": "none",
+    "dataset": "cicids2017",
+    "eval_every": 5,
+    "hardware": "hetero",
+    "in_dim": 76,
+    "max_seconds": 400,
+    "max_version": 500,
+    "n_classes": 12,
+    "n_clients": 12,
+    "network": "mixed",
+    "out_dir": "/out",
+    "part_tag": "a0.5_2",
+    "server_lr": 0.3,
+    "staleness_a": 0.5,
+    "strategy": "staleness",
+    "target_macro_f1": 0.6,
+    "test_path": "/part/test.parquet"
+  },
+  "history": [
+    {
+      "version": 5,
+      "wall_s": 10.19,
+      "acc": 0.8878,
+      "macro_f1": 0.3241,
+      "downlink_mb": 3.466,
+      "uplink_mb": 2.166
+    },
+    {
+      "version": 10,
+      "wall_s": 19.82,
+      "acc": 0.9225,
+      "macro_f1": 0.2854,
+      "downlink_mb": 6.066,
+      "uplink_mb": 4.332
+    },
+    {
+      "version": 15,
+      "wall_s": 29.01,
+      "acc": 0.9324,
+      "macro_f1": 0.3798,
+      "downlink_mb": 8.882,
+      "uplink_mb": 6.499
+    },
+    {
+      "version": 20,
+      "wall_s": 37.52,
+      "acc": 0.9531,
+      "macro_f1": 0.4411,
+      "downlink_mb": 10.398,
+      "uplink_mb": 8.665
+    },
+    {
+      "version": 25,
+      "wall_s": 46.03,
+      "acc": 0.972,
+      "macro_f1": 0.5095,
+      "downlink_mb": 12.348,
+      "uplink_mb": 10.831
+    },
+    {
+      "version": 30,
+      "wall_s": 55.03,
+      "acc": 0.9765,
+      "macro_f1": 0.5056,
+      "downlink_mb": 14.947,
+      "uplink_mb": 12.998
+    },
+    {
+      "version": 35,
+      "wall_s": 64.34,
+      "acc": 0.9786,
+      "macro_f1": 0.5219,
+      "downlink_mb": 17.547,
+      "uplink_mb": 15.164
+    },
+    {
+      "version": 40,
+      "wall_s": 72.91,
+      "acc": 0.9805,
+      "macro_f1": 0.5944,
+      "downlink_mb": 19.28,
+      "uplink_mb": 17.33
+    },
+    {
+      "version": 45,
+      "wall_s": 81.63,
+      "acc": 0.9811,
+      "macro_f1": 0.6541,
+      "downlink_mb": 20.796,
+      "uplink_mb": 19.496
+    }
+  ],
+  "final_version": 45,
+  "reached_target": true
+}

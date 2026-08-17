@@ -1,0 +1,98 @@
+{
+  "config": {
+    "buffer_k": 4,
+    "compression": "none",
+    "dataset": "botiot",
+    "eval_every": 5,
+    "hardware": "homo",
+    "in_dim": 32,
+    "max_seconds": 900,
+    "max_version": 500,
+    "n_classes": 4,
+    "n_clients": 12,
+    "network": "mixed",
+    "out_dir": "/out",
+    "part_tag": "a0.1_2",
+    "server_lr": 0.3,
+    "staleness_a": 0.5,
+    "strategy": "fedasync",
+    "target_macro_f1": 0.62,
+    "test_path": "/part/test.parquet"
+  },
+  "history": [
+    {
+      "version": 5,
+      "wall_s": 9.66,
+      "acc": 0.5256,
+      "macro_f1": 0.1773,
+      "downlink_mb": 1.842,
+      "uplink_mb": 0.837
+    },
+    {
+      "version": 10,
+      "wall_s": 21.3,
+      "acc": 0.5254,
+      "macro_f1": 0.1722,
+      "downlink_mb": 2.846,
+      "uplink_mb": 1.674
+    },
+    {
+      "version": 15,
+      "wall_s": 31.72,
+      "acc": 0.4522,
+      "macro_f1": 0.2491,
+      "downlink_mb": 3.851,
+      "uplink_mb": 2.512
+    },
+    {
+      "version": 20,
+      "wall_s": 40.35,
+      "acc": 0.4573,
+      "macro_f1": 0.2737,
+      "downlink_mb": 4.521,
+      "uplink_mb": 3.349
+    },
+    {
+      "version": 25,
+      "wall_s": 49.6,
+      "acc": 0.4526,
+      "macro_f1": 0.2532,
+      "downlink_mb": 5.526,
+      "uplink_mb": 4.186
+    },
+    {
+      "version": 30,
+      "wall_s": 61.39,
+      "acc": 0.56,
+      "macro_f1": 0.5661,
+      "downlink_mb": 6.028,
+      "uplink_mb": 5.023
+    },
+    {
+      "version": 35,
+      "wall_s": 72.51,
+      "acc": 0.61,
+      "macro_f1": 0.4893,
+      "downlink_mb": 7.2,
+      "uplink_mb": 5.86
+    },
+    {
+      "version": 40,
+      "wall_s": 82.68,
+      "acc": 0.7857,
+      "macro_f1": 0.5456,
+      "downlink_mb": 8.037,
+      "uplink_mb": 6.698
+    },
+    {
+      "version": 45,
+      "wall_s": 92.94,
+      "acc": 0.7955,
+      "macro_f1": 0.7913,
+      "downlink_mb": 8.707,
+      "uplink_mb": 7.535
+    }
+  ],
+  "final_version": 45,
+  "reached_target": true
+}

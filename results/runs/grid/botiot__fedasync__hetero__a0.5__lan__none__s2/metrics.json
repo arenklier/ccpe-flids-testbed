@@ -1,0 +1,98 @@
+{
+  "config": {
+    "buffer_k": 4,
+    "compression": "none",
+    "dataset": "botiot",
+    "eval_every": 5,
+    "hardware": "hetero",
+    "in_dim": 32,
+    "max_seconds": 900,
+    "max_version": 500,
+    "n_classes": 4,
+    "n_clients": 12,
+    "network": "lan",
+    "out_dir": "/out",
+    "part_tag": "a0.5_2",
+    "server_lr": 0.3,
+    "staleness_a": 0.5,
+    "strategy": "fedasync",
+    "target_macro_f1": 0.62,
+    "test_path": "/part/test.parquet"
+  },
+  "history": [
+    {
+      "version": 5,
+      "wall_s": 12.34,
+      "acc": 0.5244,
+      "macro_f1": 0.3749,
+      "downlink_mb": 1.507,
+      "uplink_mb": 0.837
+    },
+    {
+      "version": 10,
+      "wall_s": 24.23,
+      "acc": 0.48,
+      "macro_f1": 0.2889,
+      "downlink_mb": 3.516,
+      "uplink_mb": 1.674
+    },
+    {
+      "version": 15,
+      "wall_s": 34.15,
+      "acc": 0.5885,
+      "macro_f1": 0.4164,
+      "downlink_mb": 3.516,
+      "uplink_mb": 2.512
+    },
+    {
+      "version": 20,
+      "wall_s": 42.31,
+      "acc": 0.6968,
+      "macro_f1": 0.5501,
+      "downlink_mb": 3.516,
+      "uplink_mb": 3.349
+    },
+    {
+      "version": 25,
+      "wall_s": 53.17,
+      "acc": 0.8844,
+      "macro_f1": 0.5727,
+      "downlink_mb": 5.86,
+      "uplink_mb": 4.186
+    },
+    {
+      "version": 30,
+      "wall_s": 64.43,
+      "acc": 0.8836,
+      "macro_f1": 0.5655,
+      "downlink_mb": 6.028,
+      "uplink_mb": 5.023
+    },
+    {
+      "version": 35,
+      "wall_s": 72.44,
+      "acc": 0.8698,
+      "macro_f1": 0.5574,
+      "downlink_mb": 6.028,
+      "uplink_mb": 5.86
+    },
+    {
+      "version": 40,
+      "wall_s": 81.76,
+      "acc": 0.8952,
+      "macro_f1": 0.5842,
+      "downlink_mb": 8.539,
+      "uplink_mb": 6.698
+    },
+    {
+      "version": 45,
+      "wall_s": 91.33,
+      "acc": 0.8611,
+      "macro_f1": 0.6358,
+      "downlink_mb": 8.539,
+      "uplink_mb": 7.535
+    }
+  ],
+  "final_version": 45,
+  "reached_target": true
+}

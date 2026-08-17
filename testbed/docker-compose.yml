@@ -1,0 +1,57 @@
+# CCPE-FLIDS testbed: 1 aggregator + 12 heterogeneous clients.
+# Hardware tiers are enforced with cgroup cpu/memory limits; network profiles
+# are applied per-container by testbed/scripts/apply_netem.sh after startup.
+#
+# Tiers (4 clients each in the mixed-hardware condition):
+#   fast: 4.0 CPUs, 8g   | mid: 2.0 CPUs, 4g   | slow: 0.5 CPUs, 2g
+
+x-client-base: &client-base
+  build: ..
+  image: ccpe-flids:latest
+  volumes:
+    - /mnt/data/ccpe-flids/datasets:/datasets:ro
+    - /mnt/data/ccpe-flids/results:/results
+  environment:
+    - SERVER_ADDR=aggregator:8080
+  depends_on:
+    - aggregator
+  networks: [flnet]
+
+services:
+  aggregator:
+    build: ..
+    image: ccpe-flids:latest
+    command: python -m flids.server.main --config /configs/${EXP_CONFIG:-smoke.yaml}
+    volumes:
+      - ../configs:/configs:ro
+      - /mnt/data/ccpe-flids/results:/results
+    ports: ["8080:8080"]
+    networks: [flnet]
+
+  client-fast:
+    <<: *client-base
+    command: python -m flids.client.main --tier fast
+    deploy:
+      replicas: 4
+      resources:
+        limits: { cpus: "4.0", memory: 8g }
+
+  client-mid:
+    <<: *client-base
+    command: python -m flids.client.main --tier mid
+    deploy:
+      replicas: 4
+      resources:
+        limits: { cpus: "2.0", memory: 4g }
+
+  client-slow:
+    <<: *client-base
+    command: python -m flids.client.main --tier slow
+    deploy:
+      replicas: 4
+      resources:
+        limits: { cpus: "0.5", memory: 2g }
+
+networks:
+  flnet:
+    driver: bridge

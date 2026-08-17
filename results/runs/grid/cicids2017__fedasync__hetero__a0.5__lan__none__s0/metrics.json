@@ -1,0 +1,98 @@
+{
+  "config": {
+    "buffer_k": 4,
+    "compression": "none",
+    "dataset": "cicids2017",
+    "eval_every": 5,
+    "hardware": "hetero",
+    "in_dim": 76,
+    "max_seconds": 900,
+    "max_version": 500,
+    "n_classes": 12,
+    "n_clients": 12,
+    "network": "lan",
+    "out_dir": "/out",
+    "part_tag": "a0.5_0",
+    "server_lr": 0.3,
+    "staleness_a": 0.5,
+    "strategy": "fedasync",
+    "target_macro_f1": 0.6,
+    "test_path": "/part/test.parquet"
+  },
+  "history": [
+    {
+      "version": 5,
+      "wall_s": 7.68,
+      "acc": 0.7895,
+      "macro_f1": 0.0828,
+      "downlink_mb": 2.166,
+      "uplink_mb": 1.083
+    },
+    {
+      "version": 10,
+      "wall_s": 15.31,
+      "acc": 0.9495,
+      "macro_f1": 0.3003,
+      "downlink_mb": 2.599,
+      "uplink_mb": 2.166
+    },
+    {
+      "version": 15,
+      "wall_s": 23.42,
+      "acc": 0.9439,
+      "macro_f1": 0.3186,
+      "downlink_mb": 5.632,
+      "uplink_mb": 3.249
+    },
+    {
+      "version": 20,
+      "wall_s": 27.7,
+      "acc": 0.9487,
+      "macro_f1": 0.3761,
+      "downlink_mb": 5.632,
+      "uplink_mb": 4.332
+    },
+    {
+      "version": 25,
+      "wall_s": 32.32,
+      "acc": 0.9434,
+      "macro_f1": 0.3945,
+      "downlink_mb": 5.632,
+      "uplink_mb": 5.416
+    },
+    {
+      "version": 30,
+      "wall_s": 37.33,
+      "acc": 0.958,
+      "macro_f1": 0.4257,
+      "downlink_mb": 8.882,
+      "uplink_mb": 6.499
+    },
+    {
+      "version": 35,
+      "wall_s": 42.36,
+      "acc": 0.9694,
+      "macro_f1": 0.4645,
+      "downlink_mb": 8.882,
+      "uplink_mb": 7.582
+    },
+    {
+      "version": 40,
+      "wall_s": 47.94,
+      "acc": 0.9755,
+      "macro_f1": 0.4623,
+      "downlink_mb": 8.882,
+      "uplink_mb": 8.665
+    },
+    {
+      "version": 45,
+      "wall_s": 56.24,
+      "acc": 0.979,
+      "macro_f1": 0.6238,
+      "downlink_mb": 11.914,
+      "uplink_mb": 9.748
+    }
+  ],
+  "final_version": 45,
+  "reached_target": true
+}

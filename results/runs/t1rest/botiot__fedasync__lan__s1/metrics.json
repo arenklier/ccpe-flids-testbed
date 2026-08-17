@@ -1,0 +1,143 @@
+{
+  "config": {
+    "buffer_k": 4,
+    "compression": "none",
+    "dataset": "botiot",
+    "eval_every": 5,
+    "hardware": "hetero",
+    "in_dim": 32,
+    "max_seconds": 3600,
+    "max_version": 2000,
+    "model_size": "small",
+    "n_classes": 4,
+    "n_clients": 12,
+    "network": "lan",
+    "out_dir": "/out",
+    "part_tag": "a0.5_1",
+    "server_lr": 0.3,
+    "staleness_a": 0.5,
+    "strategy": "fedasync",
+    "target_macro_f1": 0.62,
+    "test_path": "/part/test.parquet"
+  },
+  "history": [
+    {
+      "version": 5,
+      "wall_s": 13.75,
+      "acc": 0.4833,
+      "macro_f1": 0.3173,
+      "downlink_mb": 1.507,
+      "uplink_mb": 0.837
+    },
+    {
+      "version": 10,
+      "wall_s": 26.72,
+      "acc": 0.6179,
+      "macro_f1": 0.4448,
+      "downlink_mb": 3.516,
+      "uplink_mb": 1.674
+    },
+    {
+      "version": 15,
+      "wall_s": 39.37,
+      "acc": 0.9198,
+      "macro_f1": 0.6509,
+      "downlink_mb": 3.516,
+      "uplink_mb": 2.512
+    }
+  ],
+  "final_version": 15,
+  "reached_target": true,
+  "staleness_summary": {
+    "n_pushes": 15,
+    "mean": 2.733,
+    "p50": 1,
+    "p90": 7,
+    "max": 8,
+    "pushes_per_client": {
+      "c00": 4,
+      "c01": 4,
+      "c03": 2,
+      "c04": 2,
+      "c06": 2,
+      "c09": 1
+    }
+  },
+  "push_log": [
+    [
+      0.0,
+      "c00",
+      0
+    ],
+    [
+      0.106,
+      "c01",
+      1
+    ],
+    [
+      0.118,
+      "c00",
+      1
+    ],
+    [
+      0.227,
+      "c01",
+      1
+    ],
+    [
+      0.236,
+      "c00",
+      1
+    ],
+    [
+      13.749,
+      "c01",
+      1
+    ],
+    [
+      13.75,
+      "c03",
+      6
+    ],
+    [
+      13.751,
+      "c04",
+      7
+    ],
+    [
+      13.752,
+      "c06",
+      8
+    ],
+    [
+      13.879,
+      "c00",
+      0
+    ],
+    [
+      26.726,
+      "c01",
+      1
+    ],
+    [
+      26.727,
+      "c06",
+      2
+    ],
+    [
+      26.727,
+      "c04",
+      3
+    ],
+    [
+      26.728,
+      "c03",
+      4
+    ],
+    [
+      26.729,
+      "c09",
+      5
+    ]
+  ]
+}

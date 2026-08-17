@@ -1,0 +1,98 @@
+{
+  "config": {
+    "buffer_k": 4,
+    "compression": "none",
+    "dataset": "nbaiot",
+    "eval_every": 5,
+    "hardware": "homo",
+    "in_dim": 115,
+    "max_seconds": 900,
+    "max_version": 500,
+    "n_classes": 11,
+    "n_clients": 12,
+    "network": "mixed",
+    "out_dir": "/out",
+    "part_tag": "a0.5_2",
+    "server_lr": 0.3,
+    "staleness_a": 0.5,
+    "strategy": "fedbuff",
+    "target_macro_f1": 0.68,
+    "test_path": "/part/test.parquet"
+  },
+  "history": [
+    {
+      "version": 5,
+      "wall_s": 8.47,
+      "acc": 0.5373,
+      "macro_f1": 0.4104,
+      "downlink_mb": 7.681,
+      "uplink_mb": 5.121
+    },
+    {
+      "version": 10,
+      "wall_s": 14.21,
+      "acc": 0.661,
+      "macro_f1": 0.6019,
+      "downlink_mb": 13.058,
+      "uplink_mb": 10.242
+    },
+    {
+      "version": 15,
+      "wall_s": 18.7,
+      "acc": 0.6548,
+      "macro_f1": 0.576,
+      "downlink_mb": 17.923,
+      "uplink_mb": 15.363
+    },
+    {
+      "version": 20,
+      "wall_s": 22.81,
+      "acc": 0.7266,
+      "macro_f1": 0.678,
+      "downlink_mb": 23.3,
+      "uplink_mb": 20.484
+    },
+    {
+      "version": 25,
+      "wall_s": 27.61,
+      "acc": 0.7017,
+      "macro_f1": 0.6482,
+      "downlink_mb": 28.421,
+      "uplink_mb": 25.605
+    },
+    {
+      "version": 30,
+      "wall_s": 32.05,
+      "acc": 0.7259,
+      "macro_f1": 0.6722,
+      "downlink_mb": 33.03,
+      "uplink_mb": 30.725
+    },
+    {
+      "version": 35,
+      "wall_s": 38.63,
+      "acc": 0.7249,
+      "macro_f1": 0.6799,
+      "downlink_mb": 38.407,
+      "uplink_mb": 35.846
+    },
+    {
+      "version": 40,
+      "wall_s": 46.12,
+      "acc": 0.7298,
+      "macro_f1": 0.6681,
+      "downlink_mb": 43.784,
+      "uplink_mb": 40.967
+    },
+    {
+      "version": 45,
+      "wall_s": 53.75,
+      "acc": 0.7565,
+      "macro_f1": 0.72,
+      "downlink_mb": 48.136,
+      "uplink_mb": 46.088
+    }
+  ],
+  "final_version": 45,
+  "reached_target": true
+}

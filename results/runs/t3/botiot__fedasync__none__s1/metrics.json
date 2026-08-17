@@ -1,0 +1,144 @@
+{
+  "config": {
+    "buffer_k": 4,
+    "compression": "none",
+    "dataset": "botiot",
+    "eval_every": 5,
+    "hardware": "hetero",
+    "in_dim": 32,
+    "max_seconds": 3600,
+    "max_version": 2000,
+    "model_size": "small",
+    "n_classes": 4,
+    "n_clients": 12,
+    "network": "lan",
+    "out_dir": "/out",
+    "part_tag": "a0.5_1",
+    "server_lr": 0.3,
+    "staleness_a": 0.5,
+    "strategy": "fedasync",
+    "target_macro_f1": 0.62,
+    "test_path": "/part/test.parquet"
+  },
+  "history": [
+    {
+      "version": 5,
+      "wall_s": 12.97,
+      "acc": 0.4997,
+      "macro_f1": 0.3641,
+      "downlink_mb": 1.674,
+      "uplink_mb": 0.837
+    },
+    {
+      "version": 10,
+      "wall_s": 25.21,
+      "acc": 0.8529,
+      "macro_f1": 0.5572,
+      "downlink_mb": 2.009,
+      "uplink_mb": 1.674
+    },
+    {
+      "version": 15,
+      "wall_s": 38.13,
+      "acc": 0.8972,
+      "macro_f1": 0.6397,
+      "downlink_mb": 4.186,
+      "uplink_mb": 2.512
+    }
+  ],
+  "final_version": 15,
+  "reached_target": true,
+  "staleness_summary": {
+    "n_pushes": 15,
+    "mean": 2.867,
+    "p50": 2,
+    "p90": 7,
+    "max": 7,
+    "pushes_per_client": {
+      "c00": 5,
+      "c01": 3,
+      "c03": 2,
+      "c04": 1,
+      "c06": 2,
+      "c07": 1,
+      "c09": 1
+    }
+  },
+  "push_log": [
+    [
+      0.0,
+      "c00",
+      0
+    ],
+    [
+      0.125,
+      "c00",
+      0
+    ],
+    [
+      0.178,
+      "c01",
+      2
+    ],
+    [
+      0.249,
+      "c00",
+      1
+    ],
+    [
+      0.3,
+      "c01",
+      1
+    ],
+    [
+      12.972,
+      "c00",
+      1
+    ],
+    [
+      12.973,
+      "c03",
+      6
+    ],
+    [
+      12.974,
+      "c04",
+      7
+    ],
+    [
+      12.978,
+      "c06",
+      7
+    ],
+    [
+      12.979,
+      "c07",
+      6
+    ],
+    [
+      25.224,
+      "c09",
+      2
+    ],
+    [
+      25.344,
+      "c06",
+      1
+    ],
+    [
+      25.345,
+      "c01",
+      2
+    ],
+    [
+      25.349,
+      "c03",
+      3
+    ],
+    [
+      25.349,
+      "c00",
+      4
+    ]
+  ]
+}

@@ -1,0 +1,28 @@
+\begin{table}[t]\centering
+\caption{Detection quality reachable within an equal wall-clock budget
+(CICIDS2017, mixed network, hetero, $450$\,s per run, 3 seeds, evaluation off
+the critical path). ``Ceiling'' is the mean$\pm$std across seeds of each run's
+best macro-F1; reachability columns count seeds whose best macro-F1 reaches
+the threshold. The rightmost column explains the rest of the table: in the
+same wall-clock the asynchronous rules complete one to two orders of magnitude
+more model versions than the barrier, which is version-starved rather than
+badly behaved.}
+\label{tab:sweep}
+\begin{tabular}{ll rr ccc r}
+\toprule
+$\alpha$ & Strategy & Ceiling & Best & $\geq$0.64 & $\geq$0.68 & $\geq$0.72 & Versions \\
+\midrule
+\multirow{4}{*}{0.1}
+ & Sync FedAvg & 0.680$\pm$0.042 & 0.728 & 2/3 & 2/3 & 1/3 & 163 \\
+ & FedAsync & \textbf{0.815$\pm$0.017} & 0.837 & 3/3 & 3/3 & 3/3 & 14\,033 \\
+ & FedBuff & 0.811$\pm$0.016 & 0.833 & 3/3 & 3/3 & 3/3 & 3\,464 \\
+ & Staleness (ours) & 0.794$\pm$0.026 & 0.825 & 3/3 & 3/3 & 3/3 & 3\,535 \\
+\midrule
+\multirow{4}{*}{0.5}
+ & Sync FedAvg & 0.739$\pm$0.001 & 0.740 & 3/3 & 3/3 & 3/3 & 162 \\
+ & FedAsync & \textbf{0.862$\pm$0.018} & 0.888 & 3/3 & 3/3 & 3/3 & 13\,729 \\
+ & FedBuff & 0.855$\pm$0.009 & 0.868 & 3/3 & 3/3 & 3/3 & 3\,421 \\
+ & Staleness (ours) & 0.825$\pm$0.023 & 0.842 & 3/3 & 3/3 & 3/3 & 3\,497 \\
+\bottomrule
+\end{tabular}
+\end{table}

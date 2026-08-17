@@ -1,0 +1,98 @@
+{
+  "config": {
+    "buffer_k": 4,
+    "compression": "none",
+    "dataset": "cicids2017",
+    "eval_every": 5,
+    "hardware": "homo",
+    "in_dim": 76,
+    "max_seconds": 900,
+    "max_version": 500,
+    "n_classes": 12,
+    "n_clients": 12,
+    "network": "lan",
+    "out_dir": "/out",
+    "part_tag": "a0.1_0",
+    "server_lr": 1.0,
+    "staleness_a": 0.5,
+    "strategy": "sync",
+    "target_macro_f1": 0.6,
+    "test_path": "/part/test.parquet"
+  },
+  "history": [
+    {
+      "version": 5,
+      "wall_s": 7.87,
+      "acc": 0.9003,
+      "macro_f1": 0.1987,
+      "downlink_mb": 12.998,
+      "uplink_mb": 12.998
+    },
+    {
+      "version": 10,
+      "wall_s": 15.92,
+      "acc": 0.8842,
+      "macro_f1": 0.2657,
+      "downlink_mb": 25.995,
+      "uplink_mb": 25.995
+    },
+    {
+      "version": 15,
+      "wall_s": 25.07,
+      "acc": 0.9424,
+      "macro_f1": 0.4209,
+      "downlink_mb": 38.992,
+      "uplink_mb": 38.992
+    },
+    {
+      "version": 20,
+      "wall_s": 31.75,
+      "acc": 0.9308,
+      "macro_f1": 0.3969,
+      "downlink_mb": 51.99,
+      "uplink_mb": 51.99
+    },
+    {
+      "version": 25,
+      "wall_s": 39.1,
+      "acc": 0.9705,
+      "macro_f1": 0.4672,
+      "downlink_mb": 64.987,
+      "uplink_mb": 64.987
+    },
+    {
+      "version": 30,
+      "wall_s": 46.02,
+      "acc": 0.9524,
+      "macro_f1": 0.5364,
+      "downlink_mb": 77.985,
+      "uplink_mb": 77.985
+    },
+    {
+      "version": 35,
+      "wall_s": 54.92,
+      "acc": 0.9804,
+      "macro_f1": 0.5921,
+      "downlink_mb": 90.983,
+      "uplink_mb": 90.983
+    },
+    {
+      "version": 40,
+      "wall_s": 62.89,
+      "acc": 0.9701,
+      "macro_f1": 0.5936,
+      "downlink_mb": 103.98,
+      "uplink_mb": 103.98
+    },
+    {
+      "version": 45,
+      "wall_s": 68.19,
+      "acc": 0.9831,
+      "macro_f1": 0.6316,
+      "downlink_mb": 116.978,
+      "uplink_mb": 116.978
+    }
+  ],
+  "final_version": 45,
+  "reached_target": true
+}

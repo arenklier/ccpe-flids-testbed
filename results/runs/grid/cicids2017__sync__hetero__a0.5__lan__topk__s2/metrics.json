@@ -1,0 +1,82 @@
+{
+  "config": {
+    "buffer_k": 4,
+    "compression": "topk",
+    "dataset": "cicids2017",
+    "eval_every": 5,
+    "hardware": "hetero",
+    "in_dim": 76,
+    "max_seconds": 900,
+    "max_version": 500,
+    "n_classes": 12,
+    "n_clients": 12,
+    "network": "lan",
+    "out_dir": "/out",
+    "part_tag": "a0.5_2",
+    "server_lr": 1.0,
+    "staleness_a": 0.5,
+    "strategy": "sync",
+    "target_macro_f1": 0.6,
+    "test_path": "/part/test.parquet"
+  },
+  "history": [
+    {
+      "version": 5,
+      "wall_s": 16.13,
+      "acc": 0.9647,
+      "macro_f1": 0.3117,
+      "downlink_mb": 12.998,
+      "uplink_mb": 2.6
+    },
+    {
+      "version": 10,
+      "wall_s": 23.52,
+      "acc": 0.974,
+      "macro_f1": 0.4366,
+      "downlink_mb": 25.995,
+      "uplink_mb": 5.199
+    },
+    {
+      "version": 15,
+      "wall_s": 30.72,
+      "acc": 0.9765,
+      "macro_f1": 0.4589,
+      "downlink_mb": 38.992,
+      "uplink_mb": 7.799
+    },
+    {
+      "version": 20,
+      "wall_s": 37.73,
+      "acc": 0.9771,
+      "macro_f1": 0.4666,
+      "downlink_mb": 51.99,
+      "uplink_mb": 10.399
+    },
+    {
+      "version": 25,
+      "wall_s": 43.33,
+      "acc": 0.9774,
+      "macro_f1": 0.4738,
+      "downlink_mb": 64.987,
+      "uplink_mb": 12.999
+    },
+    {
+      "version": 30,
+      "wall_s": 53.59,
+      "acc": 0.9799,
+      "macro_f1": 0.5737,
+      "downlink_mb": 77.985,
+      "uplink_mb": 15.598
+    },
+    {
+      "version": 35,
+      "wall_s": 59.87,
+      "acc": 0.9835,
+      "macro_f1": 0.6057,
+      "downlink_mb": 90.983,
+      "uplink_mb": 18.198
+    }
+  ],
+  "final_version": 35,
+  "reached_target": true
+}

@@ -1,0 +1,98 @@
+{
+  "config": {
+    "buffer_k": 4,
+    "compression": "none",
+    "dataset": "nbaiot",
+    "eval_every": 5,
+    "hardware": "hetero",
+    "in_dim": 115,
+    "max_seconds": 900,
+    "max_version": 500,
+    "n_classes": 11,
+    "n_clients": 12,
+    "network": "mixed",
+    "out_dir": "/out",
+    "part_tag": "a0.1_1",
+    "server_lr": 1.0,
+    "staleness_a": 0.5,
+    "strategy": "sync",
+    "target_macro_f1": 0.68,
+    "test_path": "/part/test.parquet"
+  },
+  "history": [
+    {
+      "version": 5,
+      "wall_s": 26.61,
+      "acc": 0.602,
+      "macro_f1": 0.5182,
+      "downlink_mb": 15.363,
+      "uplink_mb": 15.363
+    },
+    {
+      "version": 10,
+      "wall_s": 46.35,
+      "acc": 0.6496,
+      "macro_f1": 0.5793,
+      "downlink_mb": 30.725,
+      "uplink_mb": 30.725
+    },
+    {
+      "version": 15,
+      "wall_s": 66.65,
+      "acc": 0.6355,
+      "macro_f1": 0.5572,
+      "downlink_mb": 46.088,
+      "uplink_mb": 46.088
+    },
+    {
+      "version": 20,
+      "wall_s": 86.82,
+      "acc": 0.7234,
+      "macro_f1": 0.668,
+      "downlink_mb": 61.451,
+      "uplink_mb": 61.451
+    },
+    {
+      "version": 25,
+      "wall_s": 105.36,
+      "acc": 0.6834,
+      "macro_f1": 0.6368,
+      "downlink_mb": 76.814,
+      "uplink_mb": 76.814
+    },
+    {
+      "version": 30,
+      "wall_s": 124.99,
+      "acc": 0.7279,
+      "macro_f1": 0.671,
+      "downlink_mb": 92.176,
+      "uplink_mb": 92.176
+    },
+    {
+      "version": 35,
+      "wall_s": 146.57,
+      "acc": 0.7022,
+      "macro_f1": 0.6627,
+      "downlink_mb": 107.539,
+      "uplink_mb": 107.539
+    },
+    {
+      "version": 40,
+      "wall_s": 166.6,
+      "acc": 0.715,
+      "macro_f1": 0.6568,
+      "downlink_mb": 122.902,
+      "uplink_mb": 122.902
+    },
+    {
+      "version": 45,
+      "wall_s": 188.52,
+      "acc": 0.7208,
+      "macro_f1": 0.6819,
+      "downlink_mb": 138.264,
+      "uplink_mb": 138.264
+    }
+  ],
+  "final_version": 45,
+  "reached_target": true
+}

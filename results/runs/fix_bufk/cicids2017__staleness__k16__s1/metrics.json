@@ -1,0 +1,194 @@
+{
+  "config": {
+    "buffer_k": 16,
+    "compression": "none",
+    "dataset": "cicids2017",
+    "eval_every": 5,
+    "hardware": "hetero",
+    "in_dim": 76,
+    "max_seconds": 400,
+    "max_version": 500,
+    "n_classes": 12,
+    "n_clients": 12,
+    "network": "mixed",
+    "out_dir": "/out",
+    "part_tag": "a0.5_1",
+    "server_lr": 0.3,
+    "staleness_a": 0.5,
+    "strategy": "staleness",
+    "target_macro_f1": 0.6,
+    "test_path": "/part/test.parquet"
+  },
+  "history": [
+    {
+      "version": 5,
+      "wall_s": 12.32,
+      "acc": 0.9015,
+      "macro_f1": 0.1992,
+      "downlink_mb": 19.28,
+      "uplink_mb": 17.33
+    },
+    {
+      "version": 10,
+      "wall_s": 23.84,
+      "acc": 0.9276,
+      "macro_f1": 0.2219,
+      "downlink_mb": 37.043,
+      "uplink_mb": 34.66
+    },
+    {
+      "version": 15,
+      "wall_s": 34.41,
+      "acc": 0.9327,
+      "macro_f1": 0.2942,
+      "downlink_mb": 54.156,
+      "uplink_mb": 51.99
+    },
+    {
+      "version": 20,
+      "wall_s": 45.56,
+      "acc": 0.9579,
+      "macro_f1": 0.373,
+      "downlink_mb": 71.486,
+      "uplink_mb": 69.32
+    },
+    {
+      "version": 25,
+      "wall_s": 56.35,
+      "acc": 0.9688,
+      "macro_f1": 0.3978,
+      "downlink_mb": 88.6,
+      "uplink_mb": 86.65
+    },
+    {
+      "version": 30,
+      "wall_s": 67.04,
+      "acc": 0.9723,
+      "macro_f1": 0.4112,
+      "downlink_mb": 106.146,
+      "uplink_mb": 103.98
+    },
+    {
+      "version": 35,
+      "wall_s": 78.03,
+      "acc": 0.9738,
+      "macro_f1": 0.4171,
+      "downlink_mb": 123.476,
+      "uplink_mb": 121.31
+    },
+    {
+      "version": 40,
+      "wall_s": 89.01,
+      "acc": 0.9757,
+      "macro_f1": 0.4696,
+      "downlink_mb": 140.806,
+      "uplink_mb": 138.64
+    },
+    {
+      "version": 45,
+      "wall_s": 100.27,
+      "acc": 0.977,
+      "macro_f1": 0.4732,
+      "downlink_mb": 158.353,
+      "uplink_mb": 155.97
+    },
+    {
+      "version": 50,
+      "wall_s": 111.95,
+      "acc": 0.9777,
+      "macro_f1": 0.479,
+      "downlink_mb": 175.25,
+      "uplink_mb": 173.3
+    },
+    {
+      "version": 55,
+      "wall_s": 125.05,
+      "acc": 0.9779,
+      "macro_f1": 0.481,
+      "downlink_mb": 192.363,
+      "uplink_mb": 190.63
+    },
+    {
+      "version": 60,
+      "wall_s": 137.22,
+      "acc": 0.9778,
+      "macro_f1": 0.4859,
+      "downlink_mb": 209.91,
+      "uplink_mb": 207.96
+    },
+    {
+      "version": 65,
+      "wall_s": 150.09,
+      "acc": 0.9787,
+      "macro_f1": 0.4876,
+      "downlink_mb": 227.24,
+      "uplink_mb": 225.29
+    },
+    {
+      "version": 70,
+      "wall_s": 163.14,
+      "acc": 0.9804,
+      "macro_f1": 0.4994,
+      "downlink_mb": 244.786,
+      "uplink_mb": 242.62
+    },
+    {
+      "version": 75,
+      "wall_s": 175.22,
+      "acc": 0.9816,
+      "macro_f1": 0.5045,
+      "downlink_mb": 262.116,
+      "uplink_mb": 259.95
+    },
+    {
+      "version": 80,
+      "wall_s": 186.28,
+      "acc": 0.9811,
+      "macro_f1": 0.5039,
+      "downlink_mb": 279.446,
+      "uplink_mb": 277.28
+    },
+    {
+      "version": 85,
+      "wall_s": 197.05,
+      "acc": 0.9826,
+      "macro_f1": 0.5288,
+      "downlink_mb": 296.776,
+      "uplink_mb": 294.61
+    },
+    {
+      "version": 90,
+      "wall_s": 208.32,
+      "acc": 0.9824,
+      "macro_f1": 0.5391,
+      "downlink_mb": 314.106,
+      "uplink_mb": 311.94
+    },
+    {
+      "version": 95,
+      "wall_s": 218.83,
+      "acc": 0.9837,
+      "macro_f1": 0.5501,
+      "downlink_mb": 331.436,
+      "uplink_mb": 329.27
+    },
+    {
+      "version": 100,
+      "wall_s": 229.94,
+      "acc": 0.9828,
+      "macro_f1": 0.5598,
+      "downlink_mb": 348.766,
+      "uplink_mb": 346.6
+    },
+    {
+      "version": 105,
+      "wall_s": 241.04,
+      "acc": 0.9855,
+      "macro_f1": 0.6009,
+      "downlink_mb": 365.663,
+      "uplink_mb": 363.93
+    }
+  ],
+  "final_version": 105,
+  "reached_target": true
+}

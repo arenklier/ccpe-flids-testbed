@@ -1,0 +1,23 @@
+{
+  "cicids2017": {
+    "n_classes": 12,
+    "majority_floor_macro_f1": 0.0735,
+    "centralized_upper_macro_f1": 0.8479,
+    "n_train": 1680595,
+    "n_test": 420148
+  },
+  "nbaiot": {
+    "n_classes": 11,
+    "majority_floor_macro_f1": 0.0168,
+    "centralized_upper_macro_f1": 0.877,
+    "n_train": 1418113,
+    "n_test": 354528
+  },
+  "botiot": {
+    "n_classes": 4,
+    "majority_floor_macro_f1": 0.172,
+    "centralized_upper_macro_f1": 0.9918,
+    "n_train": 2934755,
+    "n_test": 733688
+  }
+}

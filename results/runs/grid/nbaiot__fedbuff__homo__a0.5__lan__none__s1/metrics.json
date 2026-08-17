@@ -1,0 +1,98 @@
+{
+  "config": {
+    "buffer_k": 4,
+    "compression": "none",
+    "dataset": "nbaiot",
+    "eval_every": 5,
+    "hardware": "homo",
+    "in_dim": 115,
+    "max_seconds": 900,
+    "max_version": 500,
+    "n_classes": 11,
+    "n_clients": 12,
+    "network": "lan",
+    "out_dir": "/out",
+    "part_tag": "a0.5_1",
+    "server_lr": 0.3,
+    "staleness_a": 0.5,
+    "strategy": "fedbuff",
+    "target_macro_f1": 0.68,
+    "test_path": "/part/test.parquet"
+  },
+  "history": [
+    {
+      "version": 5,
+      "wall_s": 5.91,
+      "acc": 0.5502,
+      "macro_f1": 0.4535,
+      "downlink_mb": 7.425,
+      "uplink_mb": 5.121
+    },
+    {
+      "version": 10,
+      "wall_s": 11.28,
+      "acc": 0.6732,
+      "macro_f1": 0.6229,
+      "downlink_mb": 13.058,
+      "uplink_mb": 10.242
+    },
+    {
+      "version": 15,
+      "wall_s": 15.41,
+      "acc": 0.6263,
+      "macro_f1": 0.537,
+      "downlink_mb": 18.179,
+      "uplink_mb": 15.363
+    },
+    {
+      "version": 20,
+      "wall_s": 19.95,
+      "acc": 0.6766,
+      "macro_f1": 0.6095,
+      "downlink_mb": 23.3,
+      "uplink_mb": 20.484
+    },
+    {
+      "version": 25,
+      "wall_s": 23.87,
+      "acc": 0.7191,
+      "macro_f1": 0.6637,
+      "downlink_mb": 27.909,
+      "uplink_mb": 25.605
+    },
+    {
+      "version": 30,
+      "wall_s": 31.69,
+      "acc": 0.6795,
+      "macro_f1": 0.6085,
+      "downlink_mb": 33.542,
+      "uplink_mb": 30.725
+    },
+    {
+      "version": 35,
+      "wall_s": 38.68,
+      "acc": 0.7205,
+      "macro_f1": 0.6686,
+      "downlink_mb": 38.663,
+      "uplink_mb": 35.846
+    },
+    {
+      "version": 40,
+      "wall_s": 42.25,
+      "acc": 0.7057,
+      "macro_f1": 0.6515,
+      "downlink_mb": 43.784,
+      "uplink_mb": 40.967
+    },
+    {
+      "version": 45,
+      "wall_s": 47.21,
+      "acc": 0.7462,
+      "macro_f1": 0.7064,
+      "downlink_mb": 47.368,
+      "uplink_mb": 46.088
+    }
+  ],
+  "final_version": 45,
+  "reached_target": true
+}

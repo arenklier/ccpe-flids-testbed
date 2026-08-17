@@ -1,0 +1,31 @@
+\begin{table}[t]\centering
+\caption{Communication versus accuracy (LAN, hetero, $\alpha{=}0.5$, 3 seeds):
+total uplink in MB and best macro-F1 under no compression, int8 quantization
+and top-$k$ ($10\%$) sparsification. Byte counts depend on how many updates a
+strategy sends, not on wall-clock, so they are unaffected by the timing
+hazards of \S\ref{sec:measure}. The four strategies for each cell were run
+adjacently.}
+\label{tab:compression}
+\begin{tabular}{ll rr rr rr}
+\toprule
+& & \multicolumn{2}{c}{none} & \multicolumn{2}{c}{int8} & \multicolumn{2}{c}{top-$k$} \\
+\cmidrule(lr){3-4}\cmidrule(lr){5-6}\cmidrule(lr){7-8}
+Dataset & Strategy & MB & F1 & MB & F1 & MB & F1 \\
+\midrule
+CICIDS2017 & Sync FedAvg & 74 & 0.681 & 17 & 0.657 & 18 & 0.628 \\
+ & FedAsync & 14 & 0.654 & 3 & 0.631 & 3 & 0.628 \\
+ & FedBuff & 23 & 0.654 & 6 & 0.651 & 6 & 0.635 \\
+ & Staleness (ours) & 51 & 0.655 & 12 & 0.624 & 13 & 0.631 \\
+\midrule
+N-BaIoT & Sync FedAvg & 41 & 0.697 & 10 & 0.692 & 6 & 0.692 \\
+ & FedAsync & 51 & 0.698 & 12 & 0.697 & 8 & 0.689 \\
+ & FedBuff & 46 & 0.695 & 8 & 0.685 & 10 & 0.696 \\
+ & Staleness (ours) & 44 & 0.711 & 8 & 0.691 & 8 & 0.687 \\
+\midrule
+Bot-IoT & Sync FedAvg & 17 & 0.655 & 4 & 0.661 & 3 & 0.650 \\
+ & FedAsync & 3 & 0.642 & 1 & 0.667 & 1 & 0.625 \\
+ & FedBuff & 10 & 0.694 & 2 & 0.649 & 2 & 0.662 \\
+ & Staleness (ours) & 11 & 0.666 & 3 & 0.640 & 2 & 0.651 \\
+\bottomrule
+\end{tabular}
+\end{table}

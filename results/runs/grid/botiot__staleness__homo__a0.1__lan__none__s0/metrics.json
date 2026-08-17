@@ -1,0 +1,98 @@
+{
+  "config": {
+    "buffer_k": 4,
+    "compression": "none",
+    "dataset": "botiot",
+    "eval_every": 5,
+    "hardware": "homo",
+    "in_dim": 32,
+    "max_seconds": 900,
+    "max_version": 500,
+    "n_classes": 4,
+    "n_clients": 12,
+    "network": "lan",
+    "out_dir": "/out",
+    "part_tag": "a0.1_0",
+    "server_lr": 0.3,
+    "staleness_a": 0.5,
+    "strategy": "staleness",
+    "target_macro_f1": 0.62,
+    "test_path": "/part/test.parquet"
+  },
+  "history": [
+    {
+      "version": 5,
+      "wall_s": 13.59,
+      "acc": 0.8232,
+      "macro_f1": 0.4154,
+      "downlink_mb": 4.856,
+      "uplink_mb": 3.349
+    },
+    {
+      "version": 10,
+      "wall_s": 23.67,
+      "acc": 0.6962,
+      "macro_f1": 0.4251,
+      "downlink_mb": 8.539,
+      "uplink_mb": 6.698
+    },
+    {
+      "version": 15,
+      "wall_s": 31.6,
+      "acc": 0.8574,
+      "macro_f1": 0.4364,
+      "downlink_mb": 11.888,
+      "uplink_mb": 10.046
+    },
+    {
+      "version": 20,
+      "wall_s": 39.21,
+      "acc": 0.8379,
+      "macro_f1": 0.498,
+      "downlink_mb": 15.237,
+      "uplink_mb": 13.395
+    },
+    {
+      "version": 25,
+      "wall_s": 51.87,
+      "acc": 0.886,
+      "macro_f1": 0.5951,
+      "downlink_mb": 18.586,
+      "uplink_mb": 16.744
+    },
+    {
+      "version": 30,
+      "wall_s": 61.69,
+      "acc": 0.868,
+      "macro_f1": 0.5699,
+      "downlink_mb": 21.935,
+      "uplink_mb": 20.093
+    },
+    {
+      "version": 35,
+      "wall_s": 69.76,
+      "acc": 0.8679,
+      "macro_f1": 0.5989,
+      "downlink_mb": 25.116,
+      "uplink_mb": 23.442
+    },
+    {
+      "version": 40,
+      "wall_s": 79.94,
+      "acc": 0.8863,
+      "macro_f1": 0.6086,
+      "downlink_mb": 28.632,
+      "uplink_mb": 26.791
+    },
+    {
+      "version": 45,
+      "wall_s": 92.06,
+      "acc": 0.932,
+      "macro_f1": 0.6231,
+      "downlink_mb": 31.814,
+      "uplink_mb": 30.139
+    }
+  ],
+  "final_version": 45,
+  "reached_target": true
+}
