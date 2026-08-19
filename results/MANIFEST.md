@@ -22,6 +22,9 @@ critical path, and each batch runs the strategies it compares back to back.
 | `fin_delay/` | delay-curve figure, nine slow-tier delays |
 | `finsens_eta/`, `finsens_k/` | server learning rate and buffer size sweeps |
 | `xh/` | two-machine validation, 8 containerised + 4 real clients |
+| `fin_noniid/` | label-skew sweep, alpha in {0.1, 0.5, IID}, mixed network |
+| `fin_tier/` | tier-ratio robustness, 2:2:8 and 8:2:2 splits |
+| `fin_depthlan/` | small vs large model on a LAN, isolating pure compute cost |
 | `smoke_offlock/` | the corrected side of the 14x evaluation-tax measurement |
 
 ## Runs kept as evidence, not as results

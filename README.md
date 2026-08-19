@@ -22,7 +22,7 @@ checked rather than taken on trust (see [results/MANIFEST.md](results/MANIFEST.m
 src/flids/            aggregation server, client loop, compression, data pipeline
 experiments/          run scripts (one per batch in the paper) and analysis
 testbed/scripts/      tc/netem shaping applied per container tier
-results/runs/         raw metrics.json + config.yaml for all 1632 runs
+results/runs/         raw metrics.json + config.yaml for all 1692 runs
 results/figures/      figures as they appear in the paper
 results/tables/       LaTeX tables as they appear in the paper
 ```
