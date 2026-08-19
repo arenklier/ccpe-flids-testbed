@@ -10,6 +10,8 @@ abstract: >-
   path so the reported measurement effect can be verified independently.
 type: software
 license: MIT
+version: v1.1.0
+doi: 10.5281/zenodo.22012392
 authors:
   - family-names: Renklier
     given-names: Ayhan

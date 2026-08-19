@@ -97,6 +97,12 @@ none of them is exotic. They are worth checking in any FL timing study:
 We would add that run order deserves the same place in a reproducibility
 statement that random seeds already occupy.
 
+## Archived version
+
+This repository is the development copy. The archived snapshot that backs the
+paper, with the raw output of all 1692 runs, is at
+[doi:10.5281/zenodo.22012392](https://doi.org/10.5281/zenodo.22012392).
+
 ## Licence
 
 MIT, see [LICENSE](LICENSE). The datasets are covered by their own terms.
