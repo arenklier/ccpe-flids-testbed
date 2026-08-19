@@ -25,6 +25,8 @@ critical path, and each batch runs the strategies it compares back to back.
 | `fin_noniid/` | label-skew sweep, alpha in {0.1, 0.5, IID}, mixed network |
 | `fin_tier/` | tier-ratio robustness, 2:2:8 and 8:2:2 splits |
 | `fin_depthlan/` | small vs large model on a LAN, isolating pure compute cost |
+| `fin_steps/` | Table 6, local work per push from 10 to 120 minibatch steps |
+| `fin_ns/` | buffered-NS ablation, which term of the buffer weight does the damage |
 | `smoke_offlock/` | the corrected side of the 14x evaluation-tax measurement |
 
 ## Runs kept as evidence, not as results
