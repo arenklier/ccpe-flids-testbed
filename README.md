@@ -101,7 +101,7 @@ statement that random seeds already occupy.
 
 This repository is the development copy. The archived snapshot that backs the
 paper, with the raw output of all 1734 runs, is at
-[doi:10.5281/zenodo.22012392](https://doi.org/10.5281/zenodo.22012392).
+[doi:10.5281/zenodo.22022885](https://doi.org/10.5281/zenodo.22022885).
 
 ## Licence
 
