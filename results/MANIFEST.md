@@ -17,15 +17,15 @@ critical path, and each batch runs the strategies it compares back to back.
 | `fin_cross/` | Table 1, crossover across three datasets, LAN vs mixed |
 | `finsweep/` | Table 2, quality reachable within an equal 450 s budget |
 | `t3/` | Table 3, communication vs accuracy under int8 and top-k |
-| `fin_depth/` | Table 4, small vs large model |
-| `finscale/` | Table 5, 12 to 96 clients |
+| `fin_depth/` | Table 5, small vs large model |
+| `finscale/` | Table 6, 12 to 96 clients |
 | `fin_delay/` | delay-curve figure, nine slow-tier delays |
 | `finsens_eta/`, `finsens_k/` | server learning rate and buffer size sweeps |
 | `xh/` | two-machine validation, 8 containerised + 4 real clients |
 | `fin_noniid/` | label-skew sweep, alpha in {0.1, 0.5, IID}, mixed network |
 | `fin_tier/` | tier-ratio robustness, 2:2:8 and 8:2:2 splits |
 | `fin_depthlan/` | small vs large model on a LAN, isolating pure compute cost |
-| `fin_steps/` | Table 6, local work per push from 10 to 120 minibatch steps |
+| `fin_steps/` | Table 4, local work per push from 10 to 120 minibatch steps |
 | `fin_ns/` | buffered-NS ablation, which term of the buffer weight does the damage |
 | `smoke_offlock/` | the corrected side of the 14x evaluation-tax measurement |
 
