@@ -18,7 +18,9 @@ critical path, and each batch runs the strategies it compares back to back.
 | `finsweep/` | Table 2, quality reachable within an equal 450 s budget |
 | `t3/` | Table 3, communication vs accuracy under int8 and top-k |
 | `fin_depth/` | Table 5, small vs large model |
-| `finscale/` | Table 6, 12 to 96 clients |
+| `finscale/` | Table 6, 12 to 96 clients, three seeds per point |
+| `fin_delay2/` | delay curve repeated on N-BaIoT and Bot-IoT, four delays |
+| `finsens_eta2/`, `finsens_k2/` | the same server-rate and buffer-size sweeps on N-BaIoT and Bot-IoT, which is where the data-size term stops being harmful |
 | `fin_delay/` | delay-curve figure, nine slow-tier delays |
 | `finsens_eta/`, `finsens_k/` | server learning rate and buffer size sweeps |
 | `xh/` | two-machine validation, 8 containerised + 4 real clients |

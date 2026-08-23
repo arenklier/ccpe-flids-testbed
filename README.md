@@ -22,7 +22,7 @@ checked rather than taken on trust (see [results/MANIFEST.md](results/MANIFEST.m
 src/flids/            aggregation server, client loop, compression, data pipeline
 experiments/          run scripts (one per batch in the paper) and analysis
 testbed/scripts/      tc/netem shaping applied per container tier
-results/runs/         raw metrics.json + config.yaml for all 1734 runs
+results/runs/         raw metrics.json + config.yaml for all 1910 runs
 results/figures/      figures as they appear in the paper
 results/tables/       LaTeX tables as they appear in the paper
 ```
@@ -100,7 +100,7 @@ statement that random seeds already occupy.
 ## Archived version
 
 This repository is the development copy. The archived snapshot that backs the
-paper, with the raw output of all 1734 runs, is at
+paper, with the raw output of all 1910 runs, is at
 [doi:10.5281/zenodo.22022885](https://doi.org/10.5281/zenodo.22022885).
 
 ## Licence
