@@ -20,7 +20,7 @@ critical path, and each batch runs the strategies it compares back to back.
 | `fin_depth/` | Table 5, small vs large model |
 | `finscale/` | Table 6, 12 to 96 clients, three seeds per point |
 | `fin_delay2/` | delay curve repeated on N-BaIoT and Bot-IoT, four delays |
-| `fin_skew/` | Table 5, shard-size skew manipulated directly at four ratios |
+| `fin_skew/` | Table 7, shard-size skew manipulated directly at four ratios |
 | `finsens_eta2/`, `finsens_k2/` | the same server-rate and buffer-size sweeps on N-BaIoT and Bot-IoT, which is where the data-size term stops being harmful |
 | `fin_delay/` | delay-curve figure, nine slow-tier delays |
 | `finsens_eta/`, `finsens_k/` | server learning rate and buffer size sweeps |
