@@ -1,7 +1,8 @@
 \begin{table}[t]\centering
 \caption{Communication versus accuracy (LAN, hetero, $\alpha{=}0.5$, 3 seeds):
-total uplink in MB and best macro-F1 under no compression, int8 quantization
-and top-$k$ ($10\%$) sparsification. Byte counts depend on how many updates a
+total uplink in MB and the macro-F1 each run reaches on the full test split at
+the checkpoint where it stops, under no compression, int8 quantization and
+top-$k$ ($10\%$) sparsification. Byte counts depend on how many updates a
 strategy sends, not on wall-clock, so they are unaffected by the timing
 hazards of \S\ref{sec:measure}. The four strategies for each cell were run
 adjacently.}
@@ -12,20 +13,20 @@ adjacently.}
 \cmidrule(lr){3-4}\cmidrule(lr){5-6}\cmidrule(lr){7-8}
 Dataset & Strategy & MB & F1 & MB & F1 & MB & F1 \\
 \midrule
-CICIDS2017 & Sync FedAvg & 68 & 0.662 & 18 & 0.649 & 16 & 0.664 \\
- & FedAsync & 10 & 0.623 & 3 & 0.636 & 3 & 0.632 \\
- & FedBuff & 21 & 0.639 & 4 & 0.611 & 5 & 0.618 \\
- & Size-weighted & 47 & 0.637 & 11 & 0.677 & 11 & 0.647 \\
+CICIDS2017 & Sync FedAvg & 68 & 0.663 & 18 & 0.650 & 16 & 0.664 \\
+ & FedAsync & 10 & 0.619 & 3 & 0.650 & 3 & 0.635 \\
+ & FedBuff & 21 & 0.658 & 4 & 0.617 & 5 & 0.638 \\
+ & Size-weighted & 47 & 0.655 & 11 & 0.661 & 11 & 0.639 \\
 \midrule
-N-BaIoT & Sync FedAvg & 38 & 0.692 & 9 & 0.690 & 7 & 0.686 \\
- & FedAsync & 31 & 0.691 & 9 & 0.695 & 8 & 0.692 \\
- & FedBuff & 39 & 0.695 & 14 & 0.706 & 11 & 0.700 \\
- & Size-weighted & 40 & 0.689 & 12 & 0.708 & 10 & 0.698 \\
+N-BaIoT & Sync FedAvg & 38 & 0.691 & 9 & 0.686 & 7 & 0.684 \\
+ & FedAsync & 31 & 0.675 & 9 & 0.700 & 8 & 0.692 \\
+ & FedBuff & 39 & 0.681 & 14 & 0.696 & 11 & 0.696 \\
+ & Size-weighted & 40 & 0.680 & 12 & 0.711 & 10 & 0.688 \\
 \midrule
-Bot-IoT & Sync FedAvg & 10 & 0.626 & 3 & 0.635 & 2 & 0.624 \\
- & FedAsync & 4 & 0.648 & 1 & 0.643 & 1 & 0.624 \\
- & FedBuff & 10 & 0.631 & 3 & 0.649 & 2 & 0.642 \\
- & Size-weighted & 10 & 0.629 & 2 & 0.659 & 2 & 0.627 \\
+Bot-IoT & Sync FedAvg & 10 & 0.625 & 3 & 0.634 & 2 & 0.624 \\
+ & FedAsync & 4 & 0.669 & 1 & 0.659 & 1 & 0.610 \\
+ & FedBuff & 10 & 0.648 & 3 & 0.659 & 2 & 0.650 \\
+ & Size-weighted & 10 & 0.631 & 2 & 0.657 & 2 & 0.628 \\
 \bottomrule
 \end{tabular}
 \end{table}
