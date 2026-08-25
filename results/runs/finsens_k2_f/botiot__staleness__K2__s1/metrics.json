@@ -1,0 +1,279 @@
+{
+  "config": {
+    "buffer_k": 2,
+    "compression": "none",
+    "dataset": "botiot",
+    "eval_cap": 5000,
+    "eval_every": 1,
+    "hardware": "hetero",
+    "in_dim": 32,
+    "max_seconds": 600,
+    "max_version": 2000,
+    "model_size": "small",
+    "n_classes": 4,
+    "n_clients": 12,
+    "network": "mixed",
+    "out_dir": "/out",
+    "part_tag": "a0.5_1",
+    "server_lr": 0.3,
+    "staleness_a": 0.5,
+    "strategy": "staleness",
+    "target_macro_f1": 0.62,
+    "test_path": "/part/test.parquet"
+  },
+  "history": [
+    {
+      "version": 1,
+      "wall_s": 0.13,
+      "acc": 0.4632,
+      "macro_f1": 0.299,
+      "downlink_mb": 0.837,
+      "uplink_mb": 0.335
+    },
+    {
+      "version": 3,
+      "wall_s": 0.42,
+      "acc": 0.4654,
+      "macro_f1": 0.3016,
+      "downlink_mb": 1.674,
+      "uplink_mb": 1.005
+    },
+    {
+      "version": 4,
+      "wall_s": 0.7,
+      "acc": 0.4698,
+      "macro_f1": 0.3035,
+      "downlink_mb": 2.177,
+      "uplink_mb": 1.34
+    },
+    {
+      "version": 6,
+      "wall_s": 0.91,
+      "acc": 0.7031,
+      "macro_f1": 0.4551,
+      "downlink_mb": 3.014,
+      "uplink_mb": 2.009
+    },
+    {
+      "version": 7,
+      "wall_s": 1.15,
+      "acc": 0.7656,
+      "macro_f1": 0.4668,
+      "downlink_mb": 3.349,
+      "uplink_mb": 2.344
+    },
+    {
+      "version": 10,
+      "wall_s": 1.45,
+      "acc": 0.7421,
+      "macro_f1": 0.5293,
+      "downlink_mb": 4.353,
+      "uplink_mb": 3.349
+    },
+    {
+      "version": 12,
+      "wall_s": 1.61,
+      "acc": 0.9066,
+      "macro_f1": 0.6013,
+      "downlink_mb": 5.191,
+      "uplink_mb": 4.019
+    },
+    {
+      "version": 14,
+      "wall_s": 1.91,
+      "acc": 0.9264,
+      "macro_f1": 0.6294,
+      "downlink_mb": 5.86,
+      "uplink_mb": 4.688
+    }
+  ],
+  "final_version": 15,
+  "reached_target": true,
+  "final_full_eval": {
+    "version": 15,
+    "wall_s": 1.91,
+    "acc": 0.9278,
+    "macro_f1": 0.669,
+    "downlink_mb": 7.2,
+    "uplink_mb": 6.363
+  },
+  "final_fast_eval": {
+    "version": 15,
+    "wall_s": 1.91,
+    "acc": 0.9258,
+    "macro_f1": 0.6686,
+    "downlink_mb": 7.2,
+    "uplink_mb": 6.363
+  },
+  "staleness_summary": {
+    "n_pushes": 31,
+    "mean": 1.548,
+    "p50": 1,
+    "p90": 4,
+    "max": 9,
+    "pushes_per_client": {
+      "c00": 14,
+      "c01": 4,
+      "c03": 8,
+      "c04": 2,
+      "c06": 3
+    }
+  },
+  "push_log": [
+    [
+      0.0,
+      "c00",
+      0
+    ],
+    [
+      0.13,
+      "c00",
+      0
+    ],
+    [
+      0.131,
+      "c01",
+      1
+    ],
+    [
+      0.281,
+      "c01",
+      0
+    ],
+    [
+      0.282,
+      "c00",
+      1
+    ],
+    [
+      0.415,
+      "c00",
+      0
+    ],
+    [
+      0.562,
+      "c00",
+      0
+    ],
+    [
+      0.701,
+      "c00",
+      0
+    ],
+    [
+      0.739,
+      "c01",
+      2
+    ],
+    [
+      0.765,
+      "c03",
+      4
+    ],
+    [
+      0.862,
+      "c00",
+      1
+    ],
+    [
+      0.906,
+      "c03",
+      0
+    ],
+    [
+      1.01,
+      "c00",
+      1
+    ],
+    [
+      1.146,
+      "c03",
+      0
+    ],
+    [
+      1.161,
+      "c00",
+      1
+    ],
+    [
+      1.21,
+      "c04",
+      7
+    ],
+    [
+      1.314,
+      "c03",
+      1
+    ],
+    [
+      1.314,
+      "c00",
+      1
+    ],
+    [
+      1.428,
+      "c01",
+      4
+    ],
+    [
+      1.454,
+      "c00",
+      0
+    ],
+    [
+      1.469,
+      "c03",
+      1
+    ],
+    [
+      1.539,
+      "c06",
+      9
+    ],
+    [
+      1.603,
+      "c00",
+      1
+    ],
+    [
+      1.608,
+      "c03",
+      1
+    ],
+    [
+      1.679,
+      "c06",
+      1
+    ],
+    [
+      1.774,
+      "c00",
+      1
+    ],
+    [
+      1.775,
+      "c03",
+      1
+    ],
+    [
+      1.909,
+      "c06",
+      1
+    ],
+    [
+      1.91,
+      "c04",
+      5
+    ],
+    [
+      1.925,
+      "c00",
+      1
+    ],
+    [
+      1.926,
+      "c03",
+      2
+    ]
+  ]
+}

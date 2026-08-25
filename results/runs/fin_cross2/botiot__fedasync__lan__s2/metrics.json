@@ -1,0 +1,187 @@
+{
+  "config": {
+    "buffer_k": 4,
+    "compression": "none",
+    "dataset": "botiot",
+    "eval_cap": 5000,
+    "eval_every": 1,
+    "hardware": "hetero",
+    "in_dim": 32,
+    "max_seconds": 900,
+    "max_version": 2000,
+    "model_size": "small",
+    "n_classes": 4,
+    "n_clients": 12,
+    "network": "lan",
+    "out_dir": "/out",
+    "part_tag": "a0.5_2",
+    "server_lr": 0.3,
+    "staleness_a": 0.5,
+    "strategy": "fedasync",
+    "target_macro_f1": 0.62,
+    "test_path": "/part/test.parquet"
+  },
+  "history": [
+    {
+      "version": 1,
+      "wall_s": 0.0,
+      "acc": 0.4545,
+      "macro_f1": 0.2382,
+      "downlink_mb": 0.67,
+      "uplink_mb": 0.167
+    },
+    {
+      "version": 3,
+      "wall_s": 0.27,
+      "acc": 0.4615,
+      "macro_f1": 0.3169,
+      "downlink_mb": 1.172,
+      "uplink_mb": 0.502
+    },
+    {
+      "version": 5,
+      "wall_s": 0.41,
+      "acc": 0.527,
+      "macro_f1": 0.3928,
+      "downlink_mb": 1.674,
+      "uplink_mb": 0.837
+    },
+    {
+      "version": 7,
+      "wall_s": 0.55,
+      "acc": 0.8143,
+      "macro_f1": 0.5824,
+      "downlink_mb": 2.009,
+      "uplink_mb": 1.172
+    },
+    {
+      "version": 9,
+      "wall_s": 0.77,
+      "acc": 0.8649,
+      "macro_f1": 0.6013,
+      "downlink_mb": 2.344,
+      "uplink_mb": 1.507
+    },
+    {
+      "version": 14,
+      "wall_s": 1.03,
+      "acc": 0.9199,
+      "macro_f1": 0.6847,
+      "downlink_mb": 3.349,
+      "uplink_mb": 2.344
+    }
+  ],
+  "final_version": 16,
+  "reached_target": true,
+  "final_full_eval": {
+    "version": 16,
+    "wall_s": 1.03,
+    "acc": 0.9169,
+    "macro_f1": 0.6296,
+    "downlink_mb": 4.688,
+    "uplink_mb": 4.019
+  },
+  "final_fast_eval": {
+    "version": 16,
+    "wall_s": 1.03,
+    "acc": 0.9126,
+    "macro_f1": 0.6283,
+    "downlink_mb": 4.688,
+    "uplink_mb": 4.019
+  },
+  "staleness_summary": {
+    "n_pushes": 16,
+    "mean": 2.375,
+    "p50": 1,
+    "p90": 10,
+    "max": 13,
+    "pushes_per_client": {
+      "c00": 8,
+      "c01": 6,
+      "c03": 1,
+      "c04": 1
+    }
+  },
+  "push_log": [
+    [
+      0.0,
+      "c00",
+      0
+    ],
+    [
+      0.143,
+      "c00",
+      0
+    ],
+    [
+      0.27,
+      "c00",
+      0
+    ],
+    [
+      0.356,
+      "c01",
+      3
+    ],
+    [
+      0.409,
+      "c00",
+      1
+    ],
+    [
+      0.491,
+      "c01",
+      1
+    ],
+    [
+      0.549,
+      "c00",
+      1
+    ],
+    [
+      0.641,
+      "c01",
+      1
+    ],
+    [
+      0.77,
+      "c00",
+      1
+    ],
+    [
+      0.771,
+      "c01",
+      1
+    ],
+    [
+      0.943,
+      "c03",
+      10
+    ],
+    [
+      0.945,
+      "c00",
+      1
+    ],
+    [
+      0.945,
+      "c01",
+      2
+    ],
+    [
+      1.034,
+      "c04",
+      13
+    ],
+    [
+      1.076,
+      "c00",
+      1
+    ],
+    [
+      1.076,
+      "c01",
+      2
+    ]
+  ]
+}

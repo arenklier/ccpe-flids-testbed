@@ -63,8 +63,12 @@ class ParameterServer:
         self.global_params = get_params(self.model)
         self.version = 0
 
-        # test set for server-side evaluation
+        # test set for server-side evaluation. The cadence checkpoints use a
+        # class-stratified subsample so that a checkpoint is cheap enough to
+        # take often; the full split is scored once when the run finishes.
         self.test_loader = make_loader(cfg["test_path"], 4096, shuffle=False)
+        self.eval_cap = int(cfg.get("eval_cap", 0))
+        self.fast_loader = self._make_stratified_loader(self.eval_cap)
 
         # async/buffered state
         self.buffer: list[tuple[list[np.ndarray], float, int]] = []  # (delta, weight, n)
@@ -211,25 +215,62 @@ class ParameterServer:
         self.cond.notify_all()
 
     # ---- evaluation ----------------------------------------------------
-    def _evaluate_snapshot(self, version, elapsed, params, dn_bytes, up_bytes):
+    def _make_stratified_loader(self, cap):
+        """At most ``cap`` test rows per class, drawn once and reused.
+
+        Returns None when cap is 0, in which case every checkpoint scores the
+        full split, which is the behaviour of earlier versions of this code.
+        """
+        if cap <= 0:
+            return None
+        from torch.utils.data import DataLoader, TensorDataset
+        X, y = self.test_loader.dataset.tensors
+        yn = y.numpy()
+        rng = np.random.default_rng(0)
+        keep = []
+        for c in range(int(self.cfg["n_classes"])):
+            idx = np.where(yn == c)[0]
+            if len(idx) > cap:
+                idx = rng.choice(idx, size=cap, replace=False)
+            keep.append(idx)
+        keep = np.sort(np.concatenate(keep)) if keep else np.array([], dtype=int)
+        # precision depends on the class prior, which capping distorts, so each
+        # sampled row carries the inverse of its class's sampling rate
+        n_cls = int(self.cfg["n_classes"])
+        self.eval_weights = np.ones(n_cls, dtype=np.float64)
+        kept = yn[keep]
+        for c in range(n_cls):
+            full_c = int((yn == c).sum())
+            kept_c = int((kept == c).sum())
+            self.eval_weights[c] = (full_c / kept_c) if kept_c else 0.0
+        print(f"[eval] stratified checkpoint set: {len(keep)} of {len(yn)} rows",
+              flush=True)
+        return DataLoader(TensorDataset(X[keep], y[keep]), batch_size=4096,
+                          shuffle=False, num_workers=0)
+
+    def _evaluate_snapshot(self, version, elapsed, params, dn_bytes, up_bytes,
+                           full=False):
         """Score a parameter snapshot. Runs on the worker thread, no lock held."""
         set_params(self.eval_model, params)
         self.eval_model.eval()
         n_classes = self.cfg["n_classes"]
         tp = np.zeros(n_classes); fp = np.zeros(n_classes); fn = np.zeros(n_classes)
         correct = total = 0
+        loader = self.test_loader if (full or self.fast_loader is None)             else self.fast_loader
         with torch.no_grad():
-            for X, y in self.test_loader:
+            for X, y in loader:
                 X = X.to(self.device)
                 pred = self.eval_model(X).argmax(1).cpu().numpy()
                 yt = y.numpy()
-                correct += int((pred == yt).sum()); total += len(yt)
+                w = (np.ones(len(yt)) if (full or self.fast_loader is None)
+                     else self.eval_weights[yt])
+                correct += float((w * (pred == yt)).sum()); total += float(w.sum())
                 for c in range(n_classes):
-                    tp[c] += int(((pred == c) & (yt == c)).sum())
-                    fp[c] += int(((pred == c) & (yt != c)).sum())
-                    fn[c] += int(((pred != c) & (yt == c)).sum())
+                    tp[c] += float((w * ((pred == c) & (yt == c))).sum())
+                    fp[c] += float((w * ((pred == c) & (yt != c))).sum())
+                    fn[c] += float((w * ((pred != c) & (yt == c))).sum())
         f1 = np.where((2 * tp + fp + fn) > 0, 2 * tp / (2 * tp + fp + fn), 0.0)
-        macro_f1 = float(f1.mean()); acc = correct / max(total, 1)
+        macro_f1 = float(f1.mean()); acc = correct / max(total, 1.0)
         rec = {"version": version, "wall_s": round(elapsed, 2),
                "acc": round(acc, 4), "macro_f1": round(macro_f1, 4),
                "downlink_mb": round(dn_bytes / 1e6, 3),
@@ -280,9 +321,26 @@ class ParameterServer:
             "max": st[-1] if st else 0,
             "pushes_per_client": pc,
         }
+        # score the complete test split once, so the stratified checkpoint set
+        # can be checked against the quantity it stands in for
+        final_full = final_fast = None
+        if self.fast_loader is not None and self.history:
+            wall = self.history[-1]["wall_s"]
+            try:
+                final_full = self._evaluate_snapshot(
+                    self.version, wall, self.global_params,
+                    self.downlink_bytes, self.uplink_bytes, full=True)
+                final_fast = self._evaluate_snapshot(
+                    self.version, wall, self.global_params,
+                    self.downlink_bytes, self.uplink_bytes, full=False)
+            except Exception as exc:                       # never lose a run
+                print(f"[eval] final comparison pass failed: {exc}", flush=True)
+
         out = {"config": self.cfg, "history": self.history,
                "final_version": self.version,
                "reached_target": any(h["macro_f1"] >= self.target_f1 for h in self.history),
+               "final_full_eval": final_full,
+               "final_fast_eval": final_fast,
                "staleness_summary": stale_summary,
                "push_log": self.push_log}
         (self.out_dir / "metrics.json").write_text(json.dumps(out, indent=2))

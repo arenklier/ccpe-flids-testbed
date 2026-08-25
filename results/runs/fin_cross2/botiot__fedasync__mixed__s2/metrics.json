@@ -1,0 +1,129 @@
+{
+  "config": {
+    "buffer_k": 4,
+    "compression": "none",
+    "dataset": "botiot",
+    "eval_cap": 5000,
+    "eval_every": 1,
+    "hardware": "hetero",
+    "in_dim": 32,
+    "max_seconds": 900,
+    "max_version": 2000,
+    "model_size": "small",
+    "n_classes": 4,
+    "n_clients": 12,
+    "network": "mixed",
+    "out_dir": "/out",
+    "part_tag": "a0.5_2",
+    "server_lr": 0.3,
+    "staleness_a": 0.5,
+    "strategy": "fedasync",
+    "target_macro_f1": 0.62,
+    "test_path": "/part/test.parquet"
+  },
+  "history": [
+    {
+      "version": 1,
+      "wall_s": 0.0,
+      "acc": 0.4543,
+      "macro_f1": 0.2347,
+      "downlink_mb": 0.67,
+      "uplink_mb": 0.167
+    },
+    {
+      "version": 3,
+      "wall_s": 0.2,
+      "acc": 0.4628,
+      "macro_f1": 0.3296,
+      "downlink_mb": 1.005,
+      "uplink_mb": 0.502
+    },
+    {
+      "version": 5,
+      "wall_s": 0.33,
+      "acc": 0.8088,
+      "macro_f1": 0.5811,
+      "downlink_mb": 1.507,
+      "uplink_mb": 0.837
+    },
+    {
+      "version": 7,
+      "wall_s": 0.47,
+      "acc": 0.8783,
+      "macro_f1": 0.6355,
+      "downlink_mb": 1.842,
+      "uplink_mb": 1.172
+    }
+  ],
+  "final_version": 8,
+  "reached_target": true,
+  "final_full_eval": {
+    "version": 8,
+    "wall_s": 0.47,
+    "acc": 0.8596,
+    "macro_f1": 0.6508,
+    "downlink_mb": 3.181,
+    "uplink_mb": 2.344
+  },
+  "final_fast_eval": {
+    "version": 8,
+    "wall_s": 0.47,
+    "acc": 0.8568,
+    "macro_f1": 0.6494,
+    "downlink_mb": 3.349,
+    "uplink_mb": 2.344
+  },
+  "staleness_summary": {
+    "n_pushes": 8,
+    "mean": 0.875,
+    "p50": 1,
+    "p90": 2,
+    "max": 2,
+    "pushes_per_client": {
+      "c00": 5,
+      "c01": 3
+    }
+  },
+  "push_log": [
+    [
+      0.0,
+      "c00",
+      0
+    ],
+    [
+      0.135,
+      "c00",
+      0
+    ],
+    [
+      0.199,
+      "c01",
+      2
+    ],
+    [
+      0.258,
+      "c00",
+      1
+    ],
+    [
+      0.334,
+      "c01",
+      1
+    ],
+    [
+      0.377,
+      "c00",
+      1
+    ],
+    [
+      0.467,
+      "c01",
+      1
+    ],
+    [
+      0.555,
+      "c00",
+      1
+    ]
+  ]
+}

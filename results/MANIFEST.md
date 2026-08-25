@@ -9,28 +9,34 @@ implements it.
 
 ## Runs behind the paper's tables and figures
 
-These were all produced **after** evaluation was moved off the aggregator's
-critical path, and each batch runs the strategies it compares back to back.
+These were produced with evaluation off the aggregator's critical path **and**
+with the class-stratified checkpoint set, so one evaluator is used throughout.
+Each batch runs the strategies it compares back to back.
 
 | Directory | Backs |
 |---|---|
-| `fin_cross/` | Table 1, crossover across three datasets, LAN vs mixed |
-| `finsweep/` | Table 2, quality reachable within an equal 450 s budget |
-| `t3/` | Table 3, communication vs accuracy under int8 and top-k |
-| `fin_depth/` | Table 5, small vs large model |
-| `finscale/` | Table 6, 12 to 96 clients, three seeds per point |
-| `fin_delay2/` | delay curve repeated on N-BaIoT and Bot-IoT, four delays |
-| `fin_skew/` | Table 7, shard-size skew manipulated directly at four ratios |
-| `finsens_eta2/`, `finsens_k2/` | the same server-rate and buffer-size sweeps on N-BaIoT and Bot-IoT, which is where the data-size term stops being harmful |
-| `fin_delay/` | delay-curve figure, nine slow-tier delays |
-| `finsens_eta/`, `finsens_k/` | server learning rate and buffer size sweeps |
-| `xh/` | two-machine validation, 8 containerised + 4 real clients |
-| `fin_noniid/` | label-skew sweep, alpha in {0.1, 0.5, IID}, mixed network |
-| `fin_tier/` | tier-ratio robustness, 2:2:8 and 8:2:2 splits |
-| `fin_depthlan/` | small vs large model on a LAN, isolating pure compute cost |
-| `fin_steps/` | Table 4, local work per push from 10 to 120 minibatch steps |
-| `fin_ns/` | buffered-NS ablation, which term of the buffer weight does the damage |
+| `fin_cross2/` | Table 1 and Figures 1 and 4, crossover across three datasets, LAN vs mixed |
+| `finsweep_f/` | Table 2, quality reachable within an equal 450 s budget |
+| `t3_f/` | Table 3 and Figure 5, communication vs accuracy under int8 and top-k |
+| `fin_steps_f/` | Table 4, local work per push from 10 to 120 minibatch steps |
+| `fin_depth_f/` | Table 5, small vs large model |
+| `finscale_f/` | Table 6, 12 to 96 clients |
+| `fin_skew_f/` | Table 7, shard-size skew manipulated directly at four ratios |
+| `fin_delay_f/` | Figure 2, nine slow-tier delays |
+| `fin_noniid_f/` | Figure 3, label-skew sweep |
+| `fin_tier_f/` | tier-ratio robustness, 2:2:8 and 8:2:2 splits |
+| `fin_depthlan_f/` | small vs large model on a LAN, isolating pure compute cost |
+| `fin_ns_f/` | buffered-NS ablation, which term of the buffer weight does the damage |
+| `finsens_eta_f/`, `finsens_k_f/` | server learning rate and buffer size, CICIDS2017 |
+| `fin_delay2_f/`, `finsens_eta2_f/`, `finsens_k2_f/` | the same sweeps on N-BaIoT and Bot-IoT |
+| `xh/` | two-machine validation, 8 containerised + 4 real clients. This one needs a
+second physical machine and could not be re-measured with the stratified
+evaluator; both of its arms use the coarse one, which the paper states. |
 | `smoke_offlock/` | the corrected side of the 14x evaluation-tax measurement |
+
+The `_f` suffix marks the stratified-checkpoint re-measurement. The
+corresponding directories without it are the earlier, coarser measurements of
+the same configurations, kept for the comparison in Section 6.
 
 ## Runs kept as evidence, not as results
 
@@ -47,6 +53,7 @@ numbers should not be compared against the batches above.
 | `wb_*/`, `t1rest/`, `ctl_*/` | within-batch re-measurements used to establish the 2.2x host drift and to separate it from the FedBuff fix |
 | `sweep/`, `fix_*/`, `depth_*/`, `strengthen_*/`, `closeout_*/` | earlier sweeps whose qualitative findings survived but whose absolute timings did not |
 | `crosshost_*/`, `real_crosshost/` | the two-machine trials run before the fix, which reproduced the harness bug faithfully and reported the inverted ordering |
+| `fin_cross/`, `finsweep/`, `t3/`, `fin_steps/`, `fin_depth/`, `finscale/`, `fin_skew/`, `fin_delay/`, `fin_noniid/`, `fin_tier/`, `fin_depthlan/`, `fin_ns/`, `finsens_*/`, `fin_delay2/` | the same configurations measured before the stratified checkpoint set, when a fast run could record as few as two checkpoints. Their asynchronous times are biased late; the paper quantifies the shift |
 
 ## Baselines
 

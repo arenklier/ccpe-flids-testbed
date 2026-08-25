@@ -1,0 +1,223 @@
+{
+  "config": {
+    "buffer_k": 4,
+    "compression": "none",
+    "dataset": "nbaiot",
+    "eval_cap": 5000,
+    "eval_every": 1,
+    "hardware": "hetero",
+    "in_dim": 115,
+    "max_seconds": 600,
+    "max_version": 2000,
+    "model_size": "small",
+    "n_classes": 11,
+    "n_clients": 12,
+    "network": "mixed",
+    "out_dir": "/out",
+    "part_tag": "a0.5_0",
+    "server_lr": 1.0,
+    "staleness_a": 0.5,
+    "strategy": "sync",
+    "target_macro_f1": 0.6,
+    "test_path": "/part/test.parquet"
+  },
+  "history": [
+    {
+      "version": 1,
+      "wall_s": 8.93,
+      "acc": 0.558,
+      "macro_f1": 0.4742,
+      "downlink_mb": 3.073,
+      "uplink_mb": 3.073
+    },
+    {
+      "version": 2,
+      "wall_s": 11.59,
+      "acc": 0.6832,
+      "macro_f1": 0.6465,
+      "downlink_mb": 6.145,
+      "uplink_mb": 6.145
+    }
+  ],
+  "final_version": 2,
+  "reached_target": true,
+  "final_full_eval": {
+    "version": 2,
+    "wall_s": 11.59,
+    "acc": 0.6832,
+    "macro_f1": 0.6456,
+    "downlink_mb": 10.242,
+    "uplink_mb": 8.962
+  },
+  "final_fast_eval": {
+    "version": 2,
+    "wall_s": 11.59,
+    "acc": 0.6832,
+    "macro_f1": 0.6465,
+    "downlink_mb": 10.242,
+    "uplink_mb": 9.218
+  },
+  "staleness_summary": {
+    "n_pushes": 28,
+    "mean": 0.0,
+    "p50": 0,
+    "p90": 0,
+    "max": 0,
+    "pushes_per_client": {
+      "c00": 3,
+      "c01": 2,
+      "c03": 3,
+      "c04": 2,
+      "c06": 3,
+      "c09": 3,
+      "c07": 2,
+      "c10": 2,
+      "c02": 2,
+      "c05": 2,
+      "c11": 2,
+      "c08": 2
+    }
+  },
+  "push_log": [
+    [
+      0.0,
+      "c00",
+      0
+    ],
+    [
+      0.123,
+      "c01",
+      0
+    ],
+    [
+      0.605,
+      "c03",
+      0
+    ],
+    [
+      1.237,
+      "c04",
+      0
+    ],
+    [
+      1.279,
+      "c06",
+      0
+    ],
+    [
+      2.042,
+      "c09",
+      0
+    ],
+    [
+      2.265,
+      "c07",
+      0
+    ],
+    [
+      3.039,
+      "c10",
+      0
+    ],
+    [
+      6.24,
+      "c02",
+      0
+    ],
+    [
+      7.292,
+      "c05",
+      0
+    ],
+    [
+      8.788,
+      "c11",
+      0
+    ],
+    [
+      8.933,
+      "c08",
+      0
+    ],
+    [
+      9.089,
+      "c06",
+      0
+    ],
+    [
+      9.094,
+      "c00",
+      0
+    ],
+    [
+      9.099,
+      "c09",
+      0
+    ],
+    [
+      9.119,
+      "c03",
+      0
+    ],
+    [
+      9.665,
+      "c01",
+      0
+    ],
+    [
+      9.687,
+      "c04",
+      0
+    ],
+    [
+      9.687,
+      "c10",
+      0
+    ],
+    [
+      9.696,
+      "c07",
+      0
+    ],
+    [
+      11.29,
+      "c05",
+      0
+    ],
+    [
+      11.318,
+      "c02",
+      0
+    ],
+    [
+      11.417,
+      "c11",
+      0
+    ],
+    [
+      11.591,
+      "c08",
+      0
+    ],
+    [
+      11.772,
+      "c00",
+      0
+    ],
+    [
+      11.773,
+      "c06",
+      0
+    ],
+    [
+      11.774,
+      "c09",
+      0
+    ],
+    [
+      11.774,
+      "c03",
+      0
+    ]
+  ]
+}

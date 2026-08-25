@@ -1,0 +1,248 @@
+{
+  "config": {
+    "buffer_k": 4,
+    "compression": "none",
+    "dataset": "botiot",
+    "eval_cap": 5000,
+    "eval_every": 1,
+    "hardware": "hetero",
+    "in_dim": 32,
+    "max_seconds": 600,
+    "max_version": 2000,
+    "model_size": "small",
+    "n_classes": 4,
+    "n_clients": 12,
+    "network": "mixed",
+    "out_dir": "/out",
+    "part_tag": "a0.5_0",
+    "server_lr": 1.0,
+    "staleness_a": 0.5,
+    "strategy": "fedbuff",
+    "target_macro_f1": 0.62,
+    "test_path": "/part/test.parquet"
+  },
+  "history": [
+    {
+      "version": 1,
+      "wall_s": 0.31,
+      "acc": 0.4743,
+      "macro_f1": 0.1796,
+      "downlink_mb": 1.34,
+      "uplink_mb": 0.67
+    },
+    {
+      "version": 2,
+      "wall_s": 0.64,
+      "acc": 0.8559,
+      "macro_f1": 0.4333,
+      "downlink_mb": 2.177,
+      "uplink_mb": 1.34
+    },
+    {
+      "version": 3,
+      "wall_s": 0.84,
+      "acc": 0.8497,
+      "macro_f1": 0.4281,
+      "downlink_mb": 2.846,
+      "uplink_mb": 2.009
+    },
+    {
+      "version": 4,
+      "wall_s": 1.13,
+      "acc": 0.9284,
+      "macro_f1": 0.5713,
+      "downlink_mb": 3.684,
+      "uplink_mb": 2.679
+    },
+    {
+      "version": 5,
+      "wall_s": 1.4,
+      "acc": 0.9393,
+      "macro_f1": 0.6197,
+      "downlink_mb": 4.353,
+      "uplink_mb": 3.349
+    },
+    {
+      "version": 7,
+      "wall_s": 1.72,
+      "acc": 0.9484,
+      "macro_f1": 0.6653,
+      "downlink_mb": 6.028,
+      "uplink_mb": 4.688
+    }
+  ],
+  "final_version": 7,
+  "reached_target": true,
+  "final_full_eval": {
+    "version": 7,
+    "wall_s": 1.72,
+    "acc": 0.9476,
+    "macro_f1": 0.6648,
+    "downlink_mb": 6.698,
+    "uplink_mb": 6.028
+  },
+  "final_fast_eval": {
+    "version": 7,
+    "wall_s": 1.72,
+    "acc": 0.9484,
+    "macro_f1": 0.6653,
+    "downlink_mb": 6.698,
+    "uplink_mb": 6.195
+  },
+  "staleness_summary": {
+    "n_pushes": 28,
+    "mean": 0.679,
+    "p50": 0,
+    "p90": 2,
+    "max": 5,
+    "pushes_per_client": {
+      "c00": 11,
+      "c01": 4,
+      "c03": 9,
+      "c04": 1,
+      "c06": 3
+    }
+  },
+  "push_log": [
+    [
+      0.0,
+      "c00",
+      0
+    ],
+    [
+      0.153,
+      "c00",
+      0
+    ],
+    [
+      0.175,
+      "c01",
+      0
+    ],
+    [
+      0.309,
+      "c00",
+      0
+    ],
+    [
+      0.311,
+      "c01",
+      1
+    ],
+    [
+      0.465,
+      "c00",
+      0
+    ],
+    [
+      0.574,
+      "c03",
+      1
+    ],
+    [
+      0.643,
+      "c00",
+      0
+    ],
+    [
+      0.71,
+      "c03",
+      1
+    ],
+    [
+      0.768,
+      "c01",
+      1
+    ],
+    [
+      0.813,
+      "c00",
+      0
+    ],
+    [
+      0.843,
+      "c03",
+      0
+    ],
+    [
+      0.975,
+      "c00",
+      1
+    ],
+    [
+      0.987,
+      "c03",
+      0
+    ],
+    [
+      1.12,
+      "c03",
+      0
+    ],
+    [
+      1.133,
+      "c00",
+      0
+    ],
+    [
+      1.265,
+      "c03",
+      1
+    ],
+    [
+      1.313,
+      "c04",
+      4
+    ],
+    [
+      1.376,
+      "c00",
+      0
+    ],
+    [
+      1.4,
+      "c03",
+      0
+    ],
+    [
+      1.415,
+      "c06",
+      5
+    ],
+    [
+      1.556,
+      "c01",
+      2
+    ],
+    [
+      1.557,
+      "c00",
+      1
+    ],
+    [
+      1.558,
+      "c06",
+      0
+    ],
+    [
+      1.559,
+      "c03",
+      1
+    ],
+    [
+      1.685,
+      "c06",
+      0
+    ],
+    [
+      1.694,
+      "c03",
+      0
+    ],
+    [
+      1.717,
+      "c00",
+      0
+    ]
+  ]
+}

@@ -5,12 +5,12 @@ abstract: >-
   Container-based testbed and complete raw measurements for a study of
   synchronous versus asynchronous federated-learning aggregation for intrusion
   detection, measured in wall-clock time on real processes and shaped networks.
-  Includes the raw output of all 2006 runs, deliberately retaining the
+  Includes the raw output of all 2738 runs, deliberately retaining the
   superseded batches measured with evaluation on the aggregator's critical
   path so the reported measurement effect can be verified independently.
 type: software
 license: MIT
-version: v1.4.0
+version: v1.5.0
 doi: 10.5281/zenodo.22022885
 authors:
   - family-names: Renklier

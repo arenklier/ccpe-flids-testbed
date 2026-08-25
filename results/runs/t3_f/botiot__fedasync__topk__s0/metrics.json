@@ -1,0 +1,338 @@
+{
+  "config": {
+    "buffer_k": 4,
+    "compression": "topk",
+    "dataset": "botiot",
+    "eval_cap": 5000,
+    "eval_every": 1,
+    "hardware": "hetero",
+    "in_dim": 32,
+    "max_seconds": 3600,
+    "max_version": 2000,
+    "model_size": "small",
+    "n_classes": 4,
+    "n_clients": 12,
+    "network": "lan",
+    "out_dir": "/out",
+    "part_tag": "a0.5_0",
+    "server_lr": 0.3,
+    "staleness_a": 0.5,
+    "strategy": "fedasync",
+    "target_macro_f1": 0.62,
+    "test_path": "/part/test.parquet"
+  },
+  "history": [
+    {
+      "version": 1,
+      "wall_s": 0.0,
+      "acc": 0.4505,
+      "macro_f1": 0.1553,
+      "downlink_mb": 0.837,
+      "uplink_mb": 0.033
+    },
+    {
+      "version": 4,
+      "wall_s": 0.31,
+      "acc": 0.8263,
+      "macro_f1": 0.4184,
+      "downlink_mb": 1.507,
+      "uplink_mb": 0.134
+    },
+    {
+      "version": 6,
+      "wall_s": 0.46,
+      "acc": 0.904,
+      "macro_f1": 0.4576,
+      "downlink_mb": 1.842,
+      "uplink_mb": 0.201
+    },
+    {
+      "version": 9,
+      "wall_s": 0.61,
+      "acc": 0.912,
+      "macro_f1": 0.4617,
+      "downlink_mb": 2.344,
+      "uplink_mb": 0.301
+    },
+    {
+      "version": 12,
+      "wall_s": 0.83,
+      "acc": 0.9164,
+      "macro_f1": 0.4639,
+      "downlink_mb": 3.014,
+      "uplink_mb": 0.402
+    },
+    {
+      "version": 19,
+      "wall_s": 1.13,
+      "acc": 0.9307,
+      "macro_f1": 0.5626,
+      "downlink_mb": 4.353,
+      "uplink_mb": 0.636
+    },
+    {
+      "version": 23,
+      "wall_s": 1.26,
+      "acc": 0.9365,
+      "macro_f1": 0.5842,
+      "downlink_mb": 5.023,
+      "uplink_mb": 0.77
+    },
+    {
+      "version": 30,
+      "wall_s": 1.45,
+      "acc": 0.9444,
+      "macro_f1": 0.6117,
+      "downlink_mb": 6.363,
+      "uplink_mb": 1.005
+    },
+    {
+      "version": 33,
+      "wall_s": 1.56,
+      "acc": 0.9434,
+      "macro_f1": 0.6205,
+      "downlink_mb": 6.865,
+      "uplink_mb": 1.105
+    }
+  ],
+  "final_version": 41,
+  "reached_target": true,
+  "final_full_eval": {
+    "version": 41,
+    "wall_s": 1.56,
+    "acc": 0.9498,
+    "macro_f1": 0.6334,
+    "downlink_mb": 8.874,
+    "uplink_mb": 1.675
+  },
+  "final_fast_eval": {
+    "version": 41,
+    "wall_s": 1.56,
+    "acc": 0.9503,
+    "macro_f1": 0.6334,
+    "downlink_mb": 8.874,
+    "uplink_mb": 1.675
+  },
+  "staleness_summary": {
+    "n_pushes": 41,
+    "mean": 4.244,
+    "p50": 3,
+    "p90": 5,
+    "max": 34,
+    "pushes_per_client": {
+      "c00": 11,
+      "c01": 11,
+      "c03": 9,
+      "c04": 5,
+      "c06": 4,
+      "c07": 1
+    }
+  },
+  "push_log": [
+    [
+      0.0,
+      "c00",
+      0
+    ],
+    [
+      0.176,
+      "c00",
+      0
+    ],
+    [
+      0.18,
+      "c01",
+      2
+    ],
+    [
+      0.312,
+      "c01",
+      0
+    ],
+    [
+      0.327,
+      "c00",
+      2
+    ],
+    [
+      0.459,
+      "c01",
+      1
+    ],
+    [
+      0.474,
+      "c00",
+      1
+    ],
+    [
+      0.539,
+      "c03",
+      7
+    ],
+    [
+      0.608,
+      "c01",
+      2
+    ],
+    [
+      0.705,
+      "c00",
+      2
+    ],
+    [
+      0.707,
+      "c03",
+      2
+    ],
+    [
+      0.832,
+      "c03",
+      0
+    ],
+    [
+      0.848,
+      "c01",
+      2
+    ],
+    [
+      0.856,
+      "c00",
+      2
+    ],
+    [
+      1.001,
+      "c04",
+      14
+    ],
+    [
+      1.002,
+      "c03",
+      2
+    ],
+    [
+      1.002,
+      "c01",
+      3
+    ],
+    [
+      1.003,
+      "c00",
+      3
+    ],
+    [
+      1.127,
+      "c03",
+      0
+    ],
+    [
+      1.142,
+      "c01",
+      1
+    ],
+    [
+      1.152,
+      "c00",
+      2
+    ],
+    [
+      1.166,
+      "c04",
+      3
+    ],
+    [
+      1.262,
+      "c03",
+      3
+    ],
+    [
+      1.277,
+      "c01",
+      3
+    ],
+    [
+      1.326,
+      "c00",
+      3
+    ],
+    [
+      1.327,
+      "c06",
+      25
+    ],
+    [
+      1.328,
+      "c04",
+      4
+    ],
+    [
+      1.433,
+      "c03",
+      4
+    ],
+    [
+      1.434,
+      "c01",
+      4
+    ],
+    [
+      1.455,
+      "c06",
+      2
+    ],
+    [
+      1.472,
+      "c00",
+      3
+    ],
+    [
+      1.482,
+      "c04",
+      4
+    ],
+    [
+      1.556,
+      "c03",
+      3
+    ],
+    [
+      1.571,
+      "c01",
+      4
+    ],
+    [
+      1.597,
+      "c06",
+      4
+    ],
+    [
+      1.62,
+      "c00",
+      4
+    ],
+    [
+      1.718,
+      "c04",
+      4
+    ],
+    [
+      1.719,
+      "c07",
+      34
+    ],
+    [
+      1.72,
+      "c03",
+      5
+    ],
+    [
+      1.72,
+      "c01",
+      5
+    ],
+    [
+      1.724,
+      "c06",
+      5
+    ]
+  ]
+}

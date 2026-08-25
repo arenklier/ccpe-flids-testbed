@@ -71,6 +71,9 @@ def main():
     ap.add_argument("--max-version", type=int, default=2000)
     ap.add_argument("--max-seconds", type=int, default=3600)
     ap.add_argument("--local-steps", type=int, default=30)
+    ap.add_argument("--eval-every", type=int, default=5)
+    ap.add_argument("--eval-cap", type=int, default=0,
+                    help="test rows per class for cadence checkpoints; 0 = full split")
     ap.add_argument("--server-lr-override", type=float, default=None,
                     help="override the strategy-default server_lr (sensitivity sweep)")
     ap.add_argument("--buffer-k", type=int, default=4,
@@ -117,7 +120,7 @@ def main():
         "test_path": f"/part/test.parquet", "out_dir": "/out",
         "compression": args.compression, "target_macro_f1": args.target_f1,
         "max_version": args.max_version, "max_seconds": args.max_seconds,
-        "eval_every": 5, "buffer_k": args.buffer_k, "staleness_a": 0.5,
+        "eval_every": args.eval_every, "eval_cap": args.eval_cap, "buffer_k": args.buffer_k, "staleness_a": 0.5,
         "server_lr": server_lr, "model_size": args.model_size,
         "dataset": args.dataset, "part_tag": args.part_tag,
         "hardware": args.hardware, "network": args.network,
