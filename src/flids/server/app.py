@@ -46,6 +46,10 @@ class ParameterServer:
         self.strategy = cfg["strategy"]
         self.eta = cfg.get("server_lr", 1.0)
         self.stale_a = cfg.get("staleness_a", 0.5)
+        # exponent on the data-size term; 0 = FedBuff, 1 = the plain
+        # data-size rule. "clip" caps each client at the median shard.
+        self.size_beta = float(cfg.get("size_beta", 1.0))
+        self.size_clip = bool(cfg.get("size_clip", False))
         self.buffer_k = cfg.get("buffer_k", 4)
         self.n_clients = cfg["n_clients"]
         self.scheme = cfg.get("compression", "none")
@@ -71,6 +75,7 @@ class ParameterServer:
         self.fast_loader = self._make_stratified_loader(self.eval_cap)
 
         # async/buffered state
+        self._seen_sizes: list[int] = []
         self.buffer: list[tuple[list[np.ndarray], float, int]] = []  # (delta, weight, n)
         self.round_pushes: dict[str, tuple[list[np.ndarray], int]] = {}
 
@@ -193,11 +198,21 @@ class ParameterServer:
 
         elif self.strategy == "staleness":
             s = (1.0 + max(0, staleness)) ** (-self.stale_a)
-            self.buffer.append((delta, s, n_samples))
+            self.buffer.append((delta, s, self._size_term(n_samples)))
             if len(self.buffer) >= self.buffer_k:
                 self._flush_buffer(use_staleness=True)
         else:
             raise ValueError(self.strategy)
+
+    def _size_term(self, n):
+        """f(n) for the buffered weight: n**beta, optionally median-clipped."""
+        self._seen_sizes.append(int(n))
+        if self.size_clip:
+            med = float(np.median(self._seen_sizes))
+            return float(min(n, med))
+        if self.size_beta == 1.0:
+            return float(n)
+        return float(n) ** self.size_beta
 
     def _flush_buffer(self, use_staleness: bool):
         if use_staleness:

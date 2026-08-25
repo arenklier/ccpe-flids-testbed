@@ -22,6 +22,7 @@ Each batch runs the strategies it compares back to back.
 | `fin_depth_f/` | Table 5, small vs large model |
 | `finscale_f/` | Table 6, 12 to 96 clients |
 | `fin_skew_f/` | Table 7, shard-size skew manipulated directly at four ratios |
+| `fin_beta/`, `fin_clip/` | Table 8, sweeping the strength of the data-size term and a median-clipped variant |
 | `fin_delay_f/` | Figure 2, nine slow-tier delays |
 | `fin_noniid_f/` | Figure 3, label-skew sweep |
 | `fin_tier_f/` | tier-ratio robustness, 2:2:8 and 8:2:2 splits |
