@@ -75,6 +75,9 @@ class ParameterServer:
         self.fast_loader = self._make_stratified_loader(self.eval_cap)
 
         # async/buffered state
+        # time spent queueing for, and inside, the aggregator lock
+        self.lock_wait_s = 0.0
+        self.lock_hold_s = 0.0
         self._seen_sizes: list[int] = []
         self.buffer: list[tuple[list[np.ndarray], float, int]] = []  # (delta, weight, n)
         self.round_pushes: dict[str, tuple[list[np.ndarray], int]] = {}
@@ -356,6 +359,8 @@ class ParameterServer:
                "reached_target": any(h["macro_f1"] >= self.target_f1 for h in self.history),
                "final_full_eval": final_full,
                "final_fast_eval": final_fast,
+               "lock_wait_s": round(self.lock_wait_s, 3),
+               "lock_hold_s": round(self.lock_hold_s, 3),
                "staleness_summary": stale_summary,
                "push_log": self.push_log}
         (self.out_dir / "metrics.json").write_text(json.dumps(out, indent=2))
@@ -392,13 +397,17 @@ def make_app(server: ParameterServer) -> FastAPI:
         n_samples = int(request.headers["x-n-samples"])
         blob = await request.body()
         delta = decode(blob, server.shapes)
+        t_arrive = time.monotonic()
         with server.cond:
+            t_enter = time.monotonic()
             if server.t0 is None:
                 server.t0 = time.monotonic()
             server.uplink_bytes += len(blob)
             if not server.done:
                 server.apply_push(client_id, base_version, delta, n_samples)
             done = server.done
+            server.lock_wait_s += t_enter - t_arrive
+            server.lock_hold_s += time.monotonic() - t_enter
         return JSONResponse({"version": server.version, "done": done})
 
     return app
