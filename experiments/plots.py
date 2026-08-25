@@ -152,7 +152,7 @@ def fig_noniid(runs, ds, out):
                 "-o", color=COLORS[s], label=STRAT_LABEL[s])
     ax.set_xticks([0, 1, 2]); ax.set_xticklabels(["α=0.1", "α=0.5", "IID"])
     ax.set_ylabel("Wall-clock to target (s)")
-    ax.set_title(f"{ds_name(ds)}: wall-clock to target against label skew (mixed network)")
+    ax.set_title(f"{ds_name(ds)}: label skew against wall-clock to target")
     ax.legend(fontsize=7); fig.tight_layout()
     fig.savefig(Path(out) / f"fig_noniid_{ds}.pdf")
     plt.close(fig)
