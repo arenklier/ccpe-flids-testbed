@@ -11,7 +11,7 @@ abstract: >-
 type: software
 license: MIT
 version: v1.7.0
-doi: 10.5281/zenodo.22022885
+doi: 10.5281/zenodo.22124783
 authors:
   - family-names: Renklier
     given-names: Ayhan
