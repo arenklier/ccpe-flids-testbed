@@ -105,9 +105,11 @@ paper, with the raw output of all 2858 runs, is at
 
 ## Authors
 
-Ayhan Renklier (Kayseri University, corresponding, `ayhan@kayseri.edu.tr`) and
-Ömer Faruk Sarıtaş (Department of Computer Engineering, Kayseri University,
-`omer@kayseri.edu.tr`).
+Ayhan Renklier, Department of Software Engineering, Faculty of Engineering, Architecture and Design, Kayseri University, corresponding author, `ayhan@kayseri.edu.tr`,
+[0000-0002-9164-4615](https://orcid.org/0000-0002-9164-4615).
+
+Ömer Faruk Sarıtaş, Department of Computer Engineering, Kayseri University, `omer@kayseri.edu.tr`,
+[0000-0003-2383-3059](https://orcid.org/0000-0003-2383-3059).
 
 ## Licence
 

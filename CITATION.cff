@@ -16,9 +16,10 @@ authors:
   - family-names: Renklier
     given-names: Ayhan
     orcid: "https://orcid.org/0000-0002-9164-4615"
-    affiliation: Kayseri University
+    affiliation: "Department of Software Engineering, Faculty of Engineering, Architecture and Design, Kayseri University"
   - family-names: "Sarıtaş"
     given-names: "Ömer Faruk"
+    orcid: "https://orcid.org/0000-0003-2383-3059"
     affiliation: "Department of Computer Engineering, Kayseri University"
 keywords:
   - federated learning

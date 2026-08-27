@@ -5,12 +5,13 @@
   "creators": [
     {
       "name": "Renklier, Ayhan",
-      "affiliation": "Kayseri University",
+      "affiliation": "Department of Software Engineering, Faculty of Engineering, Architecture and Design, Kayseri University",
       "orcid": "0000-0002-9164-4615"
     },
     {
       "name": "Sarıtaş, Ömer Faruk",
-      "affiliation": "Department of Computer Engineering, Kayseri University"
+      "affiliation": "Department of Computer Engineering, Kayseri University",
+      "orcid": "0000-0003-2383-3059"
     }
   ],
   "license": "MIT",
