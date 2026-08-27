@@ -17,6 +17,9 @@ authors:
     given-names: Ayhan
     orcid: "https://orcid.org/0000-0002-9164-4615"
     affiliation: Kayseri University
+  - family-names: "Sarıtaş"
+    given-names: "Ömer Faruk"
+    affiliation: "Department of Computer Engineering, Kayseri University"
 keywords:
   - federated learning
   - intrusion detection

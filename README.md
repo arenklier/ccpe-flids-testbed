@@ -103,6 +103,12 @@ This repository is the development copy. The archived snapshot that backs the
 paper, with the raw output of all 2858 runs, is at
 [doi:10.5281/zenodo.22022885](https://doi.org/10.5281/zenodo.22022885).
 
+## Authors
+
+Ayhan Renklier (Kayseri University, corresponding, `ayhan@kayseri.edu.tr`) and
+Ömer Faruk Sarıtaş (Department of Computer Engineering, Kayseri University,
+`omer@kayseri.edu.tr`).
+
 ## Licence
 
 MIT, see [LICENSE](LICENSE). The datasets are covered by their own terms.
